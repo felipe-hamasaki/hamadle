@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="hub">
       <header className="hub-header">
-        <Link href="/" className="wordmark">
+        <Link href="/" className="hub-wordmark">
           <span aria-hidden="true">✦</span> HAMADLE
         </Link>
         <span>Seu desafio diário</span>
@@ -31,7 +31,7 @@ export default function Home() {
             <p className="hub-eyebrow">DESAFIO DIÁRIO · PERSONAGENS</p>
             <h3>Berserkdle</h3>
             <p>
-              Entre no mundo de Berserk. Oito tentativas para desvendar o
+              Entre no mundo de Berserk. Siga as pistas para desvendar o
               personagem pelas pistas.
             </p>
             <span className="hub-play">

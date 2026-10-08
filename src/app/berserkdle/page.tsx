@@ -4,7 +4,7 @@ import Game from '@/components/game';
 export const metadata: Metadata = {
   title: 'Berserkdle — Personagem do dia | Hamadle',
   description:
-    'Um personagem. Oito tentativas. Um desafio diário no mundo de Berserk, com pistas a cada palpite.',
+    'Um personagem. Palpites ilimitados. Um desafio diário no mundo de Berserk, com pistas a cada palpite.',
 };
 
 export default function Berserkdle() {
