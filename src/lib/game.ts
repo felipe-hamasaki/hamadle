@@ -95,7 +95,7 @@ export function search(query: string, excluded: readonly string[] = []) {
   const needle = normalize(query);
   return needle
     ? characters.filter(
-        (c) => !excluded.includes(c.id) && normalize(c.name).includes(needle),
+        (c) => !excluded.includes(c.id) && normalize(c.name).startsWith(needle),
       )
     : [];
 }

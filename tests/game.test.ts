@@ -75,6 +75,17 @@ test('search normalizes accents, case, whitespace, and excludes previous guesses
   assert.equal(exactCharacter('unknown'), undefined);
 });
 
+test('suggestions match only the beginning of the displayed name', () => {
+  const matches = search(' E ');
+  assert.ok(matches.length > 0);
+  assert.ok(
+    matches.every((character) => normalize(character.name).startsWith('e')),
+  );
+  assert.ok(!matches.some((character) => character.id === 'femto'));
+  assert.equal(search('fem')[0].id, 'femto');
+  assert.deepEqual(search('emto'), []);
+});
+
 test('manga expansion includes later arcs, individual identities, and explicit portrait gaps', () => {
   assert.equal(characters.length, 118);
   for (const name of ['Skull Knight', 'Rosine', 'Silat', 'Void', 'Schnoz']) {

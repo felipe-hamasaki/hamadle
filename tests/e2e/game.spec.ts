@@ -90,6 +90,12 @@ test('keyboard alias search, invalid/repeated guesses, win, reload and share fal
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await boot(page);
+  await page.getByRole('combobox').fill('E');
+  await expect(page.getByRole('option').first()).toBeVisible();
+  for (const name of await page.getByRole('option').allTextContents()) {
+    expect(name.trim()).toMatch(/^e/i);
+  }
+  await expect(page.getByRole('option', { name: /Femto/ })).toHaveCount(0);
   await guess(page, 'unknown');
   await expect(
     page.getByText('Escolha um personagem da lista ou digite o nome completo.'),
