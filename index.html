@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="pt-BR" id="top">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f3e9" />
+    <meta
+      name="description"
+      content="Entre no Hamadle, escolha seu universo e descubra o personagem do dia."
+    />
+    <title>Hamadle — Um desafio por dia</title>
+    <script>
+      (() => {
+        let theme;
+        try {
+          theme = localStorage.getItem("hamadle:theme");
+        } catch {}
+        document.documentElement.dataset.theme =
+          theme === "light" || theme === "dark"
+            ? theme
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href="/assets/fonts/dela-gothic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/dm-sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/home.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#jogos" data-i18n="skip">Pular para os jogos</a>
+    <div class="shell">
+      <header class="header">
+        <a
+          class="brand"
+          href="/"
+          aria-label="Hamadle, início"
+          data-i18n-aria="home"
+          >hama<span>dle</span><i aria-hidden="true">✳</i></a
+        >
+        <div class="header-controls">
+          <div class="language-picker">
+            <button
+              id="language"
+              class="language-select"
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="language-menu"
+            >
+              <span class="language-current">Português</span
+              ><span aria-hidden="true" class="language-arrow">⌄</span>
+            </button>
+            <div
+              id="language-menu"
+              class="language-menu"
+              role="menu"
+              aria-label="Idioma"
+              hidden
+            >
+              <button
+                type="button"
+                role="menuitemradio"
+                aria-checked="true"
+                data-language="pt"
+                lang="pt-BR"
+              >
+                Português<span aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                aria-checked="false"
+                data-language="en"
+                lang="en"
+              >
+                English<span aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                aria-checked="false"
+                data-language="es"
+                lang="es"
+              >
+                Español<span aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
+          <button
+            class="theme-button"
+            type="button"
+            aria-label="Modo escuro"
+            title="Modo escuro"
+            aria-pressed="false"
+          >
+            <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6 8.6 8.6 0 1 0 20.4 14.2Z"
+              />
+            </svg>
+            <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+              />
+            </svg>
+          </button>
+          <button class="how-button" type="button" data-open-help>
+            <span data-i18n="how">Como joga?</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </header>
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <h1 id="hero-title">
+              <span data-i18n="heroLead">Tá na ponta</span><br /><span
+                data-i18n="heroPrefix"
+                >da </span
+              ><span class="tongue-word"
+                ><span data-i18n="heroWord">língua</span
+                ><svg
+                  viewBox="0 0 380 20"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 12 Q130 -2 374 9 M60 18 Q230 8 338 17"
+                  /></svg></span
+              >.
+            </h1>
+            <p class="hero-description">
+              <span data-i18n="intro">Você conhece. Você lembra. </span
+              ><strong data-i18n="introStrong">Ou acha que lembra.</strong
+              ><br /><span data-i18n="introEnd"
+                >Um personagem secreto por dia. Bora descobrir?</span
+              >
+            </p>
+          </div>
+          <div class="playground">
+            <button
+              class="mascot-button"
+              type="button"
+              aria-label="Cutucar o mascote"
+              data-i18n-aria="mascot"
+            >
+              <svg class="mascot" viewBox="0 0 340 350" aria-hidden="true">
+                <g
+                  class="mascot-legs"
+                  fill="none"
+                  stroke="#292820"
+                  stroke-width="9"
+                  stroke-linecap="round"
+                >
+                  <path d="M130 254 114 310 79 314M206 254 222 310 255 314" />
+                </g>
+                <g class="mascot-body">
+                  <path
+                    class="mascot-shape"
+                    d="M172 28C194 28 197 69 216 74S257 46 275 63 261 105 270 122 317 132 318 157 280 179 276 199 300 239 281 256 241 242 221 252 202 291 179 290 159 253 137 251 95 278 77 261 87 219 75 202 34 190 33 165 73 143 77 122 53 81 72 64 113 80 133 70 149 28 172 28Z"
+                  />
+                  <g class="eyes">
+                    <ellipse cx="139" cy="145" rx="25" ry="34" />
+                    <ellipse cx="203" cy="145" rx="25" ry="34" />
+                    <g class="pupils" fill="#292820">
+                      <ellipse cx="145" cy="148" rx="10" ry="17" />
+                      <ellipse cx="209" cy="148" rx="10" ry="17" />
+                    </g>
+                  </g>
+                  <path class="mouth" d="M141 197Q171 226 201 197" />
+                  <path class="cheek" d="m101 181 9 6m121-6-9 6" />
+                </g>
+              </svg>
+            </button>
+            <span class="floating-spark spark-one" aria-hidden="true">✦</span
+            ><span class="floating-spark spark-two" aria-hidden="true">✧</span>
+          </div>
+        </section>
+        <section class="collection" id="jogos" aria-labelledby="games-title">
+          <div class="collection-heading">
+            <h2 id="games-title">
+              <span data-i18n="collection">Escolha sua obsessão</span
+              ><span aria-hidden="true">↙</span>
+            </h2>
+          </div>
+          <a
+            class="game-ticket"
+            href="/berserk"
+            aria-label="Jogar Berserkdle"
+            data-i18n-aria="playGame"
+          >
+            <div class="game-art">
+              <img
+                src="/assets/berserk.webp"
+                alt=""
+                width="1100"
+                height="619"
+                fetchpriority="high"
+              /><span class="game-number">VOL. 001 / BERSERK</span>
+              <div class="art-title" aria-hidden="true">
+                BERSERK<span>DLE</span>
+              </div>
+              <span class="art-caption" data-i18n="artCaption"
+                >PARA QUEM SOBREVIVEU AO ECLIPSE.</span
+              >
+            </div>
+            <div class="ticket-info">
+              <div class="ticket-meta">
+                <span data-i18n="category">MANGÁ / ANIME</span>
+              </div>
+              <h3>Berserkdle</h3>
+              <p data-i18n="gameDescription">
+                Você reconheceria qualquer um do Bando do Falcão? Prove. Um
+                personagem, suas pistas e a sua memória.
+              </p>
+              <div class="ticket-bottom">
+                <span class="play-label"
+                  ><span data-i18n="play">Dar meu palpite</span
+                  ><span aria-hidden="true">↗</span></span
+                ><span class="daily-label"
+                  ><span data-i18n="dailyFirst">NOVO DESAFIO</span><br /><span
+                    data-i18n="dailySecond"
+                    >TODO DIA</span
+                  ></span
+                >
+              </div>
+            </div></a
+          >
+          <div class="collection-footnote">
+            <span data-i18n="footnote"
+              >Acertou? Talento. Errou? Amanhã tem mais.</span
+            ><span class="reset-note"
+              ><span aria-hidden="true">◷</span
+              ><span data-i18n="reset"
+                >Rodada nova à meia-noite de Brasília</span
+              ></span
+            >
+          </div>
+        </section>
+        <section
+          class="club-strip"
+          aria-label="Sobre o Hamadle"
+          data-i18n-aria="about"
+        >
+          <span class="strip-star" aria-hidden="true">✳</span>
+          <p>
+            <span data-i18n="clubLead">Um pequeno clube de </span
+            ><strong data-i18n="clubStrong">grandes palpites.</strong>
+          </p>
+          <span class="strip-note" data-i18n="byFan">FEITO POR FÃ.</span>
+        </section>
+      </main>
+      <footer>
+        <a class="footer-logo" href="/"
+          >hamadle<span aria-hidden="true">✳</span></a
+        ><a
+          href="#top"
+          class="back-top"
+          aria-label="Voltar ao topo"
+          data-i18n-aria="backTop"
+          ><span data-i18n="back">Lá pra cima</span
+          ><span aria-hidden="true">↑</span></a
+        >
+      </footer>
+    </div>
+    <dialog id="help-dialog" aria-labelledby="help-title">
+      <div class="dialog-top">
+        <span class="eyebrow" data-i18n="manual">MANUAL DO BOM PALPITE</span
+        ><button
+          type="button"
+          class="close-button"
+          aria-label="Fechar instruções"
+          data-i18n-aria="close"
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="help-title" data-i18n="helpTitle">Acha que sabe?</h2>
+      <p class="dialog-intro" data-i18n="helpIntro">
+        Então você já tem tudo de que precisa.
+      </p>
+      <ol class="instructions">
+        <li>
+          <span>01</span>
+          <div>
+            <h3 data-i18n="stepOneTitle">Escolha seu universo.</h3>
+            <p data-i18n="stepOne">
+              Entre no jogo e tente descobrir o personagem secreto do dia.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>02</span>
+          <div>
+            <h3 data-i18n="stepTwoTitle">Arrisque um nome.</h3>
+            <p data-i18n="stepTwo">
+              Cada palpite revela pistas. Compare os detalhes e vá afinando a
+              sua teoria.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>03</span>
+          <div>
+            <h3 data-i18n="stepThreeTitle">Junte as peças.</h3>
+            <p data-i18n="stepThree">
+              Acertou? Compartilhe o resultado pelo jogo. Amanhã, à meia-noite
+              de Brasília, começa outra rodada.
+            </p>
+          </div>
+        </li>
+      </ol>
+      <a class="dialog-play" href="/berserk"
+        ><span data-i18n="helpPlay">Entendi. Deixa comigo.</span
+        ><span aria-hidden="true">↗</span></a
+      >
+    </dialog>
+  </body>
+</html>

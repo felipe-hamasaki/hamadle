@@ -1,0 +1,6 @@
+scripts/
+review/
+README.md
+.env*
+.vercel/
+.git/

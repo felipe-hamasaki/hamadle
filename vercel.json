@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/berserk",
+      "destination": "https://berserk-dle-tau.vercel.app/berserk"
+    },
+    {
+      "source": "/berserk/:path*",
+      "destination": "https://berserk-dle-tau.vercel.app/berserk/:path*"
+    }
+  ]
+}
