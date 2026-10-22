@@ -12,5 +12,8 @@
       "source": "/berserk/:path*",
       "destination": "https://berserk-dle-tau.vercel.app/berserk/:path*"
     }
-  ]
+  ],
+  "buildCommand": "node scripts/build-portal.mjs",
+  "outputDirectory": "portal-dist",
+  "installCommand": "echo Static portal: no dependencies required"
 }
