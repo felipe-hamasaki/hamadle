@@ -13,14 +13,14 @@
       (() => {
         let theme;
         try {
-          theme = localStorage.getItem("hamadle:theme");
+          theme = localStorage.getItem('hamadle:theme');
         } catch {}
         document.documentElement.dataset.theme =
-          theme === "light" || theme === "dark"
+          theme === 'light' || theme === 'dark'
             ? theme
-            : matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+            : matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -205,40 +205,42 @@
             aria-label="Jogar Berserkdle"
             data-i18n-aria="playGame"
           >
-            <div class="game-art">
-              <img
-                src="/assets/berserk.webp"
-                alt=""
-                width="1100"
-                height="619"
-                fetchpriority="high"
-              /><span class="game-number">VOL. 001 / BERSERK</span>
-              <div class="art-title" aria-hidden="true">
-                BERSERK<span>DLE</span>
-              </div>
-              <span class="art-caption" data-i18n="artCaption"
-                >PARA QUEM SOBREVIVEU AO ECLIPSE.</span
-              >
-            </div>
-            <div class="ticket-info">
-              <div class="ticket-meta">
-                <span data-i18n="category">MANGÁ / ANIME</span>
-              </div>
-              <h3>Berserkdle</h3>
-              <p data-i18n="gameDescription">
-                Você reconheceria qualquer um do Bando do Falcão? Prove. Um
-                personagem, suas pistas e a sua memória.
-              </p>
-              <div class="ticket-bottom">
-                <span class="play-label"
-                  ><span data-i18n="play">Dar meu palpite</span
-                  ><span aria-hidden="true">↗</span></span
-                ><span class="daily-label"
-                  ><span data-i18n="dailyFirst">NOVO DESAFIO</span><br /><span
-                    data-i18n="dailySecond"
-                    >TODO DIA</span
-                  ></span
+            <div class="ticket-surface">
+              <div class="game-art">
+                <img
+                  src="/assets/berserk.webp"
+                  alt=""
+                  width="1100"
+                  height="619"
+                  fetchpriority="high"
+                /><span class="game-number">VOL. 001 / BERSERK</span>
+                <div class="art-title" aria-hidden="true">
+                  BERSERK<span>DLE</span>
+                </div>
+                <span class="art-caption" data-i18n="artCaption"
+                  >PARA QUEM SOBREVIVEU AO ECLIPSE.</span
                 >
+              </div>
+              <div class="ticket-info">
+                <div class="ticket-meta">
+                  <span data-i18n="category">MANGÁ / ANIME</span>
+                </div>
+                <h3>Berserkdle</h3>
+                <p data-i18n="gameDescription">
+                  Você reconheceria qualquer um do Bando do Falcão? Prove. Um
+                  personagem, suas pistas e a sua memória.
+                </p>
+                <div class="ticket-bottom">
+                  <span class="play-label"
+                    ><span data-i18n="play">Dar meu palpite</span
+                    ><span aria-hidden="true">↗</span></span
+                  ><span class="daily-label"
+                    ><span data-i18n="dailyFirst">NOVO DESAFIO</span><br /><span
+                      data-i18n="dailySecond"
+                      >TODO DIA</span
+                    ></span
+                  >
+                </div>
               </div>
             </div></a
           >

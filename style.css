@@ -362,21 +362,38 @@ h1 {
   margin-left: 16px;
 }
 .game-ticket {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  filter: drop-shadow(0 0 0 transparent);
+  transition:
+    transform 0.22s,
+    filter 0.22s;
+}
+.game-ticket:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(5px 7px 0 var(--ink));
+}
+.ticket-surface {
+  --ticket-seam: calc((100% - 2px) * 1.14 / 2.14 + 1px);
+  --notch-start: var(--ticket-seam) 0;
+  --notch-end: var(--ticket-seam) 100%;
   display: grid;
   grid-template-columns: 1.14fr 1fr;
   min-height: 295px;
-  text-decoration: none;
   border: 1px solid var(--ink);
   border-radius: 4px;
   background: var(--yellow);
   position: relative;
-  transition:
-    transform 0.22s,
-    box-shadow 0.22s;
-}
-.game-ticket:hover {
-  transform: translateY(-4px);
-  box-shadow: 5px 7px 0 var(--ink);
+  /* Cut the surface before the parent casts its shadow. */
+  mask-image:
+    radial-gradient(
+      circle at var(--notch-start),
+      transparent 10px,
+      #000 10.5px
+    ),
+    radial-gradient(circle at var(--notch-end), transparent 10px, #000 10.5px);
+  mask-composite: intersect;
 }
 .game-art {
   position: relative;
@@ -804,7 +821,9 @@ dialog h2 {
   .collection-heading h2 span[aria-hidden] {
     display: none;
   }
-  .game-ticket {
+  .ticket-surface {
+    --notch-start: 0 246px;
+    --notch-end: 100% 246px;
     grid-template-columns: 1fr;
   }
   .game-art {
