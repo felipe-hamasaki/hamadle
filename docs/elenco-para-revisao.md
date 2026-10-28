@@ -1,16 +1,14 @@
 # Elenco atual
 
-118 personagens após a revisão. [Histórico das remoções](elenco-removido.md).
+106 personagens após a revisão. [Histórico das remoções](elenco-removido.md).
 
 - Adolf
 - Adon
 - Adonis
 - Anna
-- Azan
-- Barba de Osso
 - Barbo
 - Bazuso
-- Besta das Trevas
+- Bonebeard
 - Borkoff
 - Boscogn
 - Carcereiro da Torre
@@ -18,10 +16,8 @@
 - Charlotte
 - Chitch
 - Collette
-- Conde
 - Conrad
 - Corkus
-- Criança Demoníaca
 - Dahl
 - Daiba
 - Danan
@@ -58,8 +54,6 @@
 - Isma
 - Ivalera
 - Jarif
-- Jerome
-- Jill
 - Joachim
 - Judeau
 - Julius
@@ -70,9 +64,7 @@
 - Luca
 - Lucie
 - Mãe de Isma
-- Magnifico
 - Martino
-- Menino do Luar
 - Molda
 - Morgan
 - Mozgus
@@ -83,7 +75,6 @@
 - Peekaf
 - Pepe
 - Pippin
-- Pontífice
 - Puck
 - Rainha de Midland
 - Rakshas
@@ -99,15 +90,12 @@
 - Samson
 - Saritus
 - Schierke
-- Schnoz
 - Senhor Serpente
 - Serpico
 - Shisu
-- Silat
 - Skirbil
 - Skull Knight
 - Slan
-- Sonia
 - Tapasa
 - Theresia
 - Theuene

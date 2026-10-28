@@ -369,7 +369,7 @@ summary {
   height: 56px;
   object-fit: cover;
   object-position: center 20%;
-  border: 1px solid #9c8064;
+  border: 0;
   background: #211a17;
   flex: none;
 }
@@ -479,6 +479,16 @@ td {
   font-size: 12px;
   line-height: 1.2;
   text-shadow: 0 1px 3px #000;
+  opacity: 0;
+  pointer-events: none;
+}
+.character-cell:hover > span,
+.character-cell:focus-visible > span {
+  opacity: 1;
+}
+.character-cell:focus-visible {
+  outline: 2px solid #f2e4d1;
+  outline-offset: -2px;
 }
 .clue {
   border-radius: 9px;

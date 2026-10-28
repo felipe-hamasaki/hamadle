@@ -55,3 +55,20 @@ Critério editorial: aparições pontuais, referências de diálogo e personagen
 Fontes consultadas: [personagens menores](https://berserk.fandom.com/wiki/Miscellaneous_Characters) e [parentes de Puck](https://berserk.fandom.com/wiki/Puck%27s_Relatives).
 
 O catálogo e o calendário excluem os IDs removidos. Saves antigos ignoram esses palpites e preservam os restantes. Os primeiros quinze dias do ciclo atual e o calendário v1 continuam iguais.
+
+## Revisão de 27/10/2026
+
+Elenco reduzido de 118 para 106 personagens. Barba de Osso passa a se chamar Bonebeard, mantendo o nome anterior como alias.
+
+- Pontífice
+- Azan
+- Schnoz
+- Silat
+- Sonia
+- Jerome
+- Jill
+- Conde
+- Criança Demoníaca
+- Besta das Trevas
+- Magnifico
+- Menino do Luar

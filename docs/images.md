@@ -13,3 +13,7 @@ Berserk e seus personagens pertencem aos respectivos titulares. A disponibilidad
 ## Expansão para o mangá completo
 
 145 novas fichas: 140 com imagens locais e cinco com ausência de retrato indicada. Consulte `docs/roster-audit.md` para a cobertura. A proveniência individual das imagens está em `public/images/characters/sources.json` (Berserk Wiki, MyAnimeList e prévia oficial de Dark Horse). Os arquivos são servidos localmente, sem depender de hotlink. Recortes de painéis para Nico, Toma, Giorgio, Poliziano, Errol, Valancia e a mãe de Serpico usam `portraitCrop` na apresentação, preservando os arquivos originais.
+
+## Revisão de 27/10/2026
+
+Onze retratos substituídos por imagens fornecidas pelo usuário: Rainha de Midland, Bonebeard, Rei de Midland, Ubik, Irvine, Serpico, Skull Knight, Slan, Farnese, Guts e Griffith. Os arquivos foram recortados em torno do rosto, em formato quadrado de 400 × 400 px. O manifesto `sources.json` registra o anexo, o recorte em pixels e a URL anterior, que não é a origem da nova imagem. A borda decorativa dos retratos pequenos foi removida para eliminar linhas nas laterais.

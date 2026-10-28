@@ -486,7 +486,7 @@ export default function Game() {
                         className={id === revealedId ? 'revealing' : undefined}
                       >
                         <th scope="row">
-                          <div className="character-cell">
+                          <div className="character-cell" tabIndex={0}>
                             <Portrait id={c.id} name={c.name} large />
                             <span>
                               <span className="sr-only">

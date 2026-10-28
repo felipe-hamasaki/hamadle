@@ -2,12 +2,26 @@
   {
     "id": "guts",
     "page": "https://myanimelist.net/character/422/Guts",
-    "image": "https://cdn.myanimelist.net/images/characters/13/284125.jpg?s=181332f40c6dd9698bae427d2a56bbf7"
+    "image": "user-supplied:codex-clipboard-a9c57c3a-61bd-4ae9-90c2-490195a80da2.png",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/13/284125.jpg?s=181332f40c6dd9698bae427d2a56bbf7",
+    "crop": {
+      "left": 146,
+      "top": 214,
+      "width": 390,
+      "height": 390
+    }
   },
   {
     "id": "griffith",
     "page": "https://myanimelist.net/character/424/Griffith",
-    "image": "https://cdn.myanimelist.net/images/characters/9/326322.jpg?s=cccaa0f72e426492f92db8f04a168a20"
+    "image": "user-supplied:codex-clipboard-8e985e1c-00a5-40c1-84eb-e36447f0f829.png",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/9/326322.jpg?s=cccaa0f72e426492f92db8f04a168a20",
+    "crop": {
+      "left": 160,
+      "top": 22,
+      "width": 245,
+      "height": 245
+    }
   },
   {
     "id": "casca",
@@ -37,12 +51,26 @@
   {
     "id": "farnese",
     "page": "https://myanimelist.net/character/7857/Farnese_de_Vandimion",
-    "image": "https://cdn.myanimelist.net/images/characters/3/150707.jpg?s=f4c441ed0f987e1ac4bd66e2a451db48"
+    "image": "user-supplied:codex-clipboard-6311dbab-46de-427b-9d3b-6cd8fb76aba8.png",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/3/150707.jpg?s=f4c441ed0f987e1ac4bd66e2a451db48",
+    "crop": {
+      "left": 188,
+      "top": 52,
+      "width": 350,
+      "height": 350
+    }
   },
   {
     "id": "serpico",
     "page": "https://myanimelist.net/character/5059/Serpico",
-    "image": "https://cdn.myanimelist.net/images/characters/15/150923.jpg?s=3ce8643254e19c029703e2f03724cb91"
+    "image": "user-supplied:codex-clipboard-9fa32d9e-ea4b-4d78-86ef-29bb07cdcfd1.png",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/15/150923.jpg?s=3ce8643254e19c029703e2f03724cb91",
+    "crop": {
+      "left": 133,
+      "top": 125,
+      "width": 270,
+      "height": 270
+    }
   },
   {
     "id": "isidro",
@@ -62,7 +90,14 @@
   {
     "id": "irvine",
     "page": "https://myanimelist.net/character/7871/Irvine",
-    "image": "https://cdn.myanimelist.net/images/characters/6/153173.jpg?s=f9d94c7b4cb62b40a220a918cf3637dc"
+    "image": "user-supplied:codex-clipboard-a93324ec-acdb-4d8e-8999-ae313f9373f9.png",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/6/153173.jpg?s=f9d94c7b4cb62b40a220a918cf3637dc",
+    "crop": {
+      "left": 191,
+      "top": 101,
+      "width": 235,
+      "height": 235
+    }
   },
   {
     "id": "grunbeld",
@@ -133,9 +168,16 @@
   {
     "id": "bonebeard",
     "page": "https://berserk.fandom.com/wiki/Bonebeard",
-    "image": "https://static.wikia.nocookie.net/berserk/images/2/29/Bonebeard_Manga.jpg/revision/latest/scale-to-width-down/220?cb=20150812173610",
+    "image": "user-supplied:codex-clipboard-30ec8bd5-10de-4754-a840-7238358eeb27.png",
     "local": "/images/characters/bonebeard.jpg",
-    "reviewed": "2026-10-02"
+    "reviewed": "2026-10-02",
+    "previousImage": "https://static.wikia.nocookie.net/berserk/images/2/29/Bonebeard_Manga.jpg/revision/latest/scale-to-width-down/220?cb=20150812173610",
+    "crop": {
+      "left": 103,
+      "top": 28,
+      "width": 230,
+      "height": 230
+    }
   },
   {
     "id": "borkoff",
@@ -448,9 +490,16 @@
   {
     "id": "king-of-midland",
     "page": "https://berserk.fandom.com/wiki/King_of_Midland",
-    "image": "https://static.wikia.nocookie.net/berserk/images/2/2b/King_of_Midland_Manga.jpg/revision/latest/scale-to-width-down/156?cb=20130428104849",
+    "image": "user-supplied:codex-clipboard-a8206baa-6039-4ce9-a9e2-6f60c910d17c.png",
     "local": "/images/characters/king-of-midland.jpg",
-    "reviewed": "2026-10-02"
+    "reviewed": "2026-10-02",
+    "previousImage": "https://static.wikia.nocookie.net/berserk/images/2/2b/King_of_Midland_Manga.jpg/revision/latest/scale-to-width-down/156?cb=20130428104849",
+    "crop": {
+      "left": 105,
+      "top": 200,
+      "width": 570,
+      "height": 570
+    }
   },
   {
     "id": "kukka",
@@ -595,9 +644,16 @@
   {
     "id": "queen-of-midland",
     "page": "https://berserk.fandom.com/wiki/Queen_of_Midland",
-    "image": "https://static.wikia.nocookie.net/berserk/images/a/a8/Queen_of_Midland_Manga.jpg/revision/latest/scale-to-width-down/238?cb=20080611150402",
+    "image": "user-supplied:codex-clipboard-cdd1699d-fd59-4787-8f2f-3a37e5c73d72.png",
     "local": "/images/characters/queen-of-midland.jpg",
-    "reviewed": "2026-10-02"
+    "reviewed": "2026-10-02",
+    "previousImage": "https://static.wikia.nocookie.net/berserk/images/a/a8/Queen_of_Midland_Manga.jpg/revision/latest/scale-to-width-down/238?cb=20080611150402",
+    "crop": {
+      "left": 25,
+      "top": 30,
+      "width": 310,
+      "height": 310
+    }
   },
   {
     "id": "rakshas",
@@ -665,16 +721,30 @@
   {
     "id": "skull-knight",
     "page": "https://myanimelist.net/character/7881/The_Skull_Knight",
-    "image": "https://cdn.myanimelist.net/images/characters/8/535379.jpg?s=5e808d3ac8e234c1c780692a2b370cb7",
+    "image": "user-supplied:codex-clipboard-fa7ac85d-6684-4b7a-9950-c31a3b2b1a4f.png",
     "local": "/images/characters/skull-knight.jpg",
-    "reviewed": "2026-10-02"
+    "reviewed": "2026-10-02",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/8/535379.jpg?s=5e808d3ac8e234c1c780692a2b370cb7",
+    "crop": {
+      "left": 52,
+      "top": 16,
+      "width": 159,
+      "height": 159
+    }
   },
   {
     "id": "slan",
     "page": "https://myanimelist.net/character/605/Slan",
-    "image": "https://cdn.myanimelist.net/images/characters/16/158175.jpg?s=a1f03a9a060e1913d9b77c055e6fe342",
+    "image": "user-supplied:codex-clipboard-43afe580-1631-4303-b0ab-ce2a15e8c011.png",
     "local": "/images/characters/slan.jpg",
-    "reviewed": "2026-10-02"
+    "reviewed": "2026-10-02",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/16/158175.jpg?s=a1f03a9a060e1913d9b77c055e6fe342",
+    "crop": {
+      "left": 137,
+      "top": 87,
+      "width": 270,
+      "height": 270
+    }
   },
   {
     "id": "snake-lord",
@@ -721,9 +791,16 @@
   {
     "id": "ubik",
     "page": "https://myanimelist.net/character/607/Ubik",
-    "image": "https://cdn.myanimelist.net/images/characters/11/158173.jpg?s=21b9ab23eeee8799803f7a26b033b218",
+    "image": "user-supplied:codex-clipboard-254bcaa7-1ab0-41cc-b4fa-99290d40898a.png",
     "local": "/images/characters/ubik.jpg",
-    "reviewed": "2026-10-02"
+    "reviewed": "2026-10-02",
+    "previousImage": "https://cdn.myanimelist.net/images/characters/11/158173.jpg?s=21b9ab23eeee8799803f7a26b033b218",
+    "crop": {
+      "left": 66,
+      "top": 36,
+      "width": 230,
+      "height": 230
+    }
   },
   {
     "id": "unidentified-female-apostle",

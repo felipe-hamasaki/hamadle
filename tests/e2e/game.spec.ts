@@ -51,7 +51,7 @@ test('expanded manga roster submits aliases and portraits, including Fantasia an
     ['Molda', 'Molda'],
     ['Danan', 'Danan'],
     ['Isma', 'Isma'],
-    ['Silat', 'Silat'],
+    ['Bonebeard', 'Bonebeard'],
   ] as const) {
     await page.getByRole('combobox').fill(query);
     const option = page
@@ -235,6 +235,11 @@ test('responsive layout, dialog focus and accessibility in empty, clue and finis
   });
   await page.getByRole('button', { name: 'Como jogar' }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
+  await page.waitForFunction(() =>
+    document
+      .getAnimations()
+      .every((animation) => animation.playState !== 'running'),
+  );
   scan = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
     .analyze();
@@ -363,4 +368,28 @@ test('test reset clears a finished game, persists and syncs without deleting oth
   await page.getByRole('button', { name: /Resetar jogo/ }).click();
   await expect(page.locator('tbody tr')).toHaveCount(0);
   await other.close();
+});
+
+test('guess names appear on hover and keyboard focus only, including after reload', async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, 'Hover requires a pointer');
+  await boot(page);
+  await guess(page, 'Guts');
+  for (let i = 0; i < 2; i++) {
+    const cell = page.locator('tbody .character-cell').first();
+    const label = cell.locator(':scope > span');
+    await page.getByRole('combobox').hover();
+    await expect(label).toHaveCSS('opacity', '0');
+    await cell.hover();
+    await expect(label).toHaveCSS('opacity', '1');
+    await page.getByRole('combobox').hover();
+    await page.keyboard.press('Tab');
+    await cell.focus();
+    await expect(label).toHaveCSS('opacity', '1');
+    await page.getByRole('combobox').focus();
+    await expect(label).toHaveCSS('opacity', '0');
+    await page.reload();
+  }
 });

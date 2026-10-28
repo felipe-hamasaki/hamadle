@@ -87,8 +87,8 @@ test('suggestions match only the beginning of the displayed name', () => {
 });
 
 test('manga expansion includes later arcs, individual identities, and explicit portrait gaps', () => {
-  assert.equal(characters.length, 118);
-  for (const name of ['Skull Knight', 'Rosine', 'Silat', 'Void', 'Schnoz']) {
+  assert.equal(characters.length, 106);
+  for (const name of ['Skull Knight', 'Rosine', 'Void', 'Bonebeard']) {
     assert.ok(
       exactCharacter(name)?.image,
       `Missing manga character or portrait: ${name}`,
@@ -97,10 +97,31 @@ test('manga expansion includes later arcs, individual identities, and explicit p
   assert.equal(exactCharacter('Danan')?.arc, 'Fantasia');
   assert.equal(exactCharacter('Morda')?.id, exactCharacter('Molda')?.id);
   assert.notEqual(exactCharacter('Griffith')?.id, exactCharacter('Femto')?.id);
-  assert.notEqual(
-    exactCharacter('Menino do Luar')?.id,
-    exactCharacter('Criança Demoníaca')?.id,
-  );
+  for (const id of [
+    'pontiff',
+    'azan',
+    'chimimoryo',
+    'silat',
+    'sonia',
+    'jerome',
+    'jill',
+    'the-count',
+    'demon-child',
+    'beast-of-darkness',
+    'magnifico',
+    'moonlight-boy',
+  ]) {
+    assert.ok(!characters.some((c) => c.id === id));
+    assert.ok(!schedule.includes(id));
+    assert.deepEqual(
+      restore(
+        JSON.stringify({ date: '2026-10-01', guesses: [id, 'guts'] }),
+        '2026-10-01',
+      ),
+      ['guts'],
+    );
+  }
+  assert.equal(exactCharacter('Barba de Osso')?.name, 'Bonebeard');
   assert.deepEqual(
     characters
       .filter((c) => c.image === null)
