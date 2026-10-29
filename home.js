@@ -1,5 +1,9 @@
 const translations = {
   pt: {
+    playHxh: "Jogar Hunter × Hunter DLE",
+    hxhCaption: "SUA PRÓXIMA CAÇADA COMEÇA AQUI.",
+    hxhDescription:
+      "De Gon à Trupe Fantasma. Siga as pistas de Nen e descubra quem é o personagem de hoje.",
     lang: "pt-BR",
     title: "Hamadle — Um desafio por dia",
     description:
@@ -48,6 +52,10 @@ const translations = {
     helpPlay: "Entendi. Deixa comigo.",
   },
   en: {
+    playHxh: "Play Hunter × Hunter DLE",
+    hxhCaption: "YOUR NEXT HUNT STARTS HERE.",
+    hxhDescription:
+      "From Gon to the Phantom Troupe. Follow the Nen clues and find today’s mystery character.",
     lang: "en",
     title: "Hamadle — A daily challenge",
     description:
@@ -96,6 +104,10 @@ const translations = {
     helpPlay: "Got it. Let me try.",
   },
   es: {
+    playHxh: "Jugar Hunter × Hunter DLE",
+    hxhCaption: "TU PRÓXIMA CACERÍA EMPIEZA AQUÍ.",
+    hxhDescription:
+      "De Gon a la Brigada Fantasma. Sigue las pistas de Nen y descubre el personaje de hoy.",
     lang: "es",
     title: "Hamadle — Un desafío cada día",
     description:

@@ -4,17 +4,22 @@ Página inicial dos jogos diários. Projeto Vercel independente: `hamadle`.
 
 - Site: https://hamadle.vercel.app
 - Berserkdle: https://hamadle.vercel.app/berserk
+- Hunter × Hunter DLE: `/hxh` (implementado neste repositório)
 - Código do portal: `D:\code\hamadle`
 - Código do jogo: `D:\code\berserk-dle`
 
-O portal é HTML/CSS estático. `vercel.json` encaminha `/berserk` e todos os seus recursos para o projeto `berserk-dle`, configurado com `basePath: '/berserk'`. Cada projeto pode ser publicado separadamente. Não adicionar uma regra genérica para `/_next`: cada novo jogo deve manter seus recursos dentro do próprio caminho.
+O portal é HTML/CSS estático. `vercel.json` encaminha `/berserk` e todos os seus recursos para o projeto `berserk-dle`, configurado com `basePath: '/berserk'`. O HxH é exportado pelo Next.js neste repositório: `npm run build:portal` gera `portal-dist/hxh.html`, imagens e bundles sob `/hxh/`, junto com a home estática. Não há dependência de servidor Next em produção nem regra genérica para `/_next`.
 
 Publicar desta pasta: `npx vercel deploy --prod --scope felipehborges-projects`.
 
 ## Desenvolvimento local
 
-Execute `node scripts/preview.mjs` e abra `http://127.0.0.1:4173`.
-O servidor entrega apenas os arquivos públicos da home e encaminha `/berserk` ao jogo já publicado. Não inicia nem altera o checkout do Berserkdle.
+Execute `npm ci`, `npm run build:portal` e `node scripts/preview.mjs`; abra `http://127.0.0.1:4173`.
+O servidor entrega a home, o HxH compilado e encaminha `/berserk` ao jogo já publicado. Não inicia nem altera o checkout do Berserkdle. Para editar o HxH com atualização automática, use `npm run dev` e abra `/hxh`; a home do Next é apenas um índice de desenvolvimento.
+
+Validação: `npm test`, `npm run lint`, `npm run typecheck`. Os testes Playwright padrão usam o servidor de desenvolvimento. Para testar a exportação real do portal, após o build, execute no PowerShell `$env:PLAYWRIGHT_PORTAL='1'; npm run test:e2e`.
+
+O elenco e as convenções do HxH estão em [docs/hxh-editorial.md](docs/hxh-editorial.md). Saves usam `hxh:v1:AAAA-MM-DD`, separados dos saves do Berserk.
 
 ## Identidade visual
 

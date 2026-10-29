@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Central de jogos diários de adivinhar personagens",
   "scripts": {
-    "test": "tsx --test tests/game.test.ts",
+    "test": "tsx --test tests/*.test.ts",
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "build:portal": "next build && node scripts/build-portal.mjs"
   },
   "type": "module",
   "dependencies": {

@@ -1,0 +1,433 @@
+@font-face {
+  font-family: 'Hunter Sans';
+  src: url('/hxh/fonts/dm-sans.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hunter Display';
+  src: url('/hxh/fonts/dela-gothic.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+.hxh-theme {
+  --ink: #142e28;
+  --paper: #f8f9ef;
+  --green: #126747;
+  --red: #a23e43;
+  color-scheme: light;
+  color: var(--ink);
+  font-family: 'Hunter Sans', sans-serif;
+  min-height: 100dvh;
+  isolation: isolate;
+  background: #edf0df;
+}
+.hxh-theme .atmosphere {
+  background:
+    radial-gradient(ellipse at 90% 15%, #b7cf8345, transparent 40%),
+    repeating-linear-gradient(0deg, transparent 0 39px, #284e3210 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, #284e3210 39px 40px),
+    #edf0df;
+}
+.hxh-theme .shell {
+  width: min(900px, calc(100% - 40px));
+  padding: 24px 0;
+}
+.hxh-theme .hero {
+  position: relative;
+  margin-bottom: 26px;
+}
+.hxh-theme .hub-return {
+  margin: 0 0 20px;
+  padding: 8px 0;
+  color: #1c5340;
+  font-weight: 800;
+  font-size: 13px;
+}
+.hxh-theme .wordmark {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.hxh-theme .wordmark:hover {
+  filter: none;
+  transform: rotate(-1deg);
+}
+.hxh-theme .hunter-logo {
+  width: min(300px, 75vw);
+  height: auto;
+}
+.hunter-edition {
+  font:
+    800 10px 'Hunter Sans',
+    sans-serif;
+  letter-spacing: 0.22em;
+  color: #f8f9ef;
+  background: #154b38;
+  padding: 6px 14px;
+  transform: rotate(-2deg);
+}
+.hxh-theme .hero-copy {
+  color: #506256;
+  text-shadow: none;
+  font:
+    500 13px 'Hunter Sans',
+    sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 18px 0;
+}
+.hxh-theme .game-toolbar {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  gap: 18px;
+}
+.hxh-theme .mode-badge {
+  font:
+    800 12px 'Hunter Sans',
+    sans-serif;
+  color: #18573e;
+}
+.hxh-theme .mode-badge > span {
+  color: #c14d23;
+  font-size: 18px;
+}
+.hxh-theme .toolbar-divider {
+  background: #b5c4a9;
+  height: 16px;
+}
+.hxh-theme .help-button {
+  font-family: inherit;
+  color: #284a3b;
+  font-size: 12px;
+}
+.hxh-theme .help-button > span {
+  border-color: #547661;
+  font-family: inherit;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+}
+.hxh-theme .reset-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  color: #435d4c;
+  box-shadow: none;
+}
+.hxh-theme .reset-button small {
+  border-color: #879b80;
+  color: #435d4c;
+}
+.hxh-theme .card-heading {
+  width: min(100%, 620px);
+  text-align: left;
+  padding: 0 34px 32px;
+  color: #142e28;
+  background: #fafbf3;
+  border: 1px solid #235d40;
+  border-top: 0;
+  border-radius: 3px;
+  box-shadow: 7px 7px 0 #1c50381a;
+}
+.hxh-theme .card-heading::before,
+.hxh-theme .card-heading::after {
+  content: none;
+}
+.hunter-file {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: #15543c;
+  color: #f6f8e6;
+  margin: 0 -34px 30px;
+  padding: 13px 22px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  border-bottom: 4px solid #e9ac42;
+}
+.hxh-theme .section-label {
+  font-size: 9px;
+  color: #637461;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.hxh-theme .card-heading h2 {
+  font:
+    400 clamp(24px, 4vw, 32px)/1.35 'Hunter Display',
+    sans-serif;
+  letter-spacing: -0.055em;
+}
+.hxh-theme .card-heading h2 em {
+  color: #19754c;
+  font-style: normal;
+}
+.hxh-theme .challenge-copy {
+  font:
+    400 13px/1.6 'Hunter Sans',
+    sans-serif;
+  color: #536456;
+  margin: 13px 0 22px;
+}
+.hxh-theme .guess-form {
+  margin-top: 0;
+  gap: 8px;
+}
+.hxh-theme .search-field {
+  background: #fff;
+  border: 1px solid #869c82;
+  border-radius: 3px;
+}
+.hxh-theme .search-field input {
+  color: #183d2d;
+  font-size: 15px;
+  height: 52px;
+}
+.hxh-theme .search-field input::placeholder {
+  color: #60735f;
+}
+.hxh-theme .search-field > span {
+  color: #39714c;
+}
+.hxh-theme .search-field:focus-within {
+  border-color: #145b3b;
+  box-shadow: inset 0 0 0 1px #145b3b;
+}
+.hxh-theme .primary {
+  background: #155d3f;
+  border: 1px solid #155d3f;
+  border-radius: 3px;
+  color: #fff;
+  font-family: inherit;
+}
+.hxh-theme .primary:hover:not(:disabled) {
+  background: #0b452d;
+  box-shadow: 3px 3px 0 #d3e1b7;
+}
+.hxh-theme .guess-form .primary {
+  flex-basis: 54px;
+}
+.hxh-theme .suggestions {
+  top: calc(100% + 7px);
+  right: -62px;
+  background: #fff;
+  border: 1px solid #376b4b;
+  border-radius: 3px;
+  box-shadow: 0 10px 18px #143b2820;
+  color: #18392c;
+}
+.hxh-theme .suggestions li {
+  font:
+    700 14px 'Hunter Sans',
+    sans-serif;
+  border-radius: 2px;
+  border-bottom-color: #dce6d1;
+}
+.hxh-theme .suggestions li:hover,
+.hxh-theme .suggestions li[aria-selected='true'] {
+  background: #e3efd4;
+}
+.hxh-theme .portrait {
+  background: #173c2c;
+  border-radius: 3px;
+}
+.hxh-theme .portrait img {
+  object-fit: cover;
+  transform: scale(1.035);
+}
+.hunter-empty {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: min(100%, 620px);
+  margin: 30px auto 0;
+  padding: 20px 0;
+  border-top: 1px dashed #a1b494;
+  color: #586b53;
+}
+.hunter-empty > span:first-child {
+  font:
+    38px Arial,
+    sans-serif;
+  color: #688a60;
+}
+.hunter-empty p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+.hunter-empty strong {
+  color: #2d503b;
+  font-weight: 700;
+}
+.hunter-unlimited {
+  margin-left: auto;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+.hxh-theme .table-wrap {
+  scrollbar-color: #698960 #e2e9d5;
+}
+.hxh-theme table {
+  border-spacing: 5px;
+}
+.hxh-theme thead th {
+  background: #dde6cd;
+  color: #294831;
+  border-bottom: 2px solid #648a56;
+  border-radius: 2px;
+  text-shadow: none;
+  font-size: 10px;
+}
+.hxh-theme .character-cell,
+.hxh-theme .clue {
+  border-radius: 3px;
+}
+.hxh-theme .clue {
+  font:
+    700 12px/1.4 'Hunter Sans',
+    sans-serif;
+  box-shadow: none;
+  border: 0;
+  background: #a23e43;
+  color: #fff;
+}
+.hxh-theme .clue.match {
+  background: #126747;
+  border: 0;
+}
+.hxh-theme .clue.partial {
+  background: #95600d;
+  border: 0;
+}
+.hxh-theme .legend {
+  border: 0;
+  padding: 10px 0;
+  background: transparent;
+  color: #3c573f;
+  font-size: 11px;
+  gap: 24px;
+}
+.hxh-theme .legend b {
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+}
+.hxh-theme .legend-partial {
+  background: #95600d;
+}
+.hxh-theme .result {
+  max-width: 620px;
+  border-radius: 3px;
+  background: #f8fbef;
+  color: #1c4834;
+  border: 1px solid #4c8053;
+  box-shadow: 6px 6px 0 #1c50381a;
+}
+.hxh-theme .result h2 {
+  font:
+    400 22px/1.5 'Hunter Display',
+    sans-serif;
+  letter-spacing: -0.04em;
+}
+.hxh-theme .portrait-large {
+  border-color: #7f9b5d;
+}
+.hxh-theme .feedback:not(:empty),
+.hxh-theme .storage-warning {
+  background: #fff4da;
+  color: #6e4216;
+  border: 1px solid #b28a4e;
+  border-radius: 3px;
+}
+.hxh-theme .share-status {
+  color: #24583e;
+}
+.hxh-theme .site-footer {
+  color: #52684a;
+  border-top: 1px solid #b9c8aa;
+  padding-top: 20px;
+  margin-top: auto;
+}
+.hxh-theme .help-dialog {
+  font-family: 'Hunter Sans', sans-serif;
+  color: #203f2f;
+  background: #f8faed;
+  border: 2px solid #2b6945;
+  border-radius: 3px;
+}
+.hxh-theme .help-dialog h2 {
+  font-family: 'Hunter Display', sans-serif;
+}
+.hxh-theme .help-dialog a {
+  color: #17613e;
+}
+.hxh-theme .dialog-close {
+  color: #1f5038;
+}
+.hxh-theme .roster li {
+  border-color: #b9caae;
+}
+.hxh-theme :focus-visible {
+  outline-color: #b64b16;
+}
+@media (max-width: 600px) {
+  .hxh-theme .shell {
+    width: calc(100% - 28px);
+    padding-top: 14px;
+  }
+  .hxh-theme .hero {
+    margin-bottom: 20px;
+  }
+  .hxh-theme .hub-return {
+    margin-bottom: 28px;
+  }
+  .hxh-theme .hunter-logo {
+    width: 250px;
+  }
+  .hxh-theme .card-heading {
+    padding: 0 21px 24px;
+    max-width: none;
+  }
+  .hunter-file {
+    margin: 0 -21px 25px;
+    padding: 12px 14px;
+    font-size: 8px;
+  }
+  .hxh-theme .card-heading h2 {
+    font-size: 24px;
+  }
+  .hxh-theme .search-field input {
+    font-size: 16px;
+  }
+  .hunter-unlimited {
+    display: none;
+  }
+  .hunter-empty {
+    margin-top: 24px;
+    padding: 16px 6px;
+  }
+  .hxh-theme .site-footer {
+    margin-top: 32px;
+  }
+}
+.hxh-theme .site-footer {
+  text-shadow: none;
+  font-size: 11px;
+}
+.hxh-theme .site-footer span:last-child {
+  color: #52684a;
+  font-size: 10px;
+}
+.hxh-theme .help-dialog::backdrop {
+  background: #102d24b8;
+}

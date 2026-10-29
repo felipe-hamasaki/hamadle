@@ -983,3 +983,12 @@ td {
   width: fit-content;
   margin: 0 auto 12px;
 }
+.hub-card + .hub-card {
+  margin-top: 24px;
+}
+.hub-card-hxh .hub-card-art {
+  background: #163f33 url('/hxh/images/expedition.svg') center / cover;
+}
+.hub-card-hxh .hub-card-art strong {
+  font-size: 18px;
+}

@@ -7,6 +7,8 @@ export default defineConfig([
   globalIgnores([
     '.cache-research/**',
     '.next/**',
+    'out/**',
+    'portal-dist/**',
     'next-env.d.ts',
     'playwright-report/**',
     'test-results/**',

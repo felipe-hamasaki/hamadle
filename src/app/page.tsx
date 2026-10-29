@@ -39,6 +39,18 @@ export default function Home() {
             </span>
           </div>
         </Link>
+        <Link href="/hxh" className="hub-card hub-card-hxh">
+          <div className="hub-card-art" aria-hidden="true">
+            <span>✦</span>
+            <strong>HUNTER × HUNTER</strong>
+          </div>
+          <div className="hub-card-content">
+            <p className="hub-eyebrow">DESAFIO DIÁRIO · PERSONAGENS</p>
+            <h3>Hunter × Hunter DLE</h3>
+            <p>Siga as pistas de Nen e encontre o personagem do dia.</p>
+            <span className="hub-play">Jogar agora ↗</span>
+          </div>
+        </Link>
         <p className="hub-soon">Outros universos chegam em breve.</p>
       </section>
       <footer className="hub-footer">

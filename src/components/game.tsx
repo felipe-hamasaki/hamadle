@@ -9,34 +9,29 @@ import {
 } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { characters } from '@/data/characters';
+import { characters as berserkCharacters } from '@/data/characters';
 import {
-  challenge,
+  characters as hxhCharacters,
+  arcs as hxhArcs,
+} from '@/data/hxh-characters';
+import * as berserk from '@/lib/game';
+import * as hxh from '@/lib/hxh-game';
+import {
   clueLabels,
-  compare,
   dateInBrasilia,
-  exactCharacter,
-  fields,
-  isFinished,
-  restore,
-  schedule,
-  search,
-  shareText,
-  storageKey,
-} from '@/lib/game';
+  type GameCharacter,
+} from '@/lib/game-engine';
 
 type Session = { date: string; guesses: string[] };
 
 function Portrait({
-  id,
-  name,
+  character,
   large = false,
 }: {
-  id: string;
-  name: string;
+  character: GameCharacter;
   large?: boolean;
 }) {
-  const character = characters.find((character) => character.id === id)!;
+  const { name } = character;
   const crop = character.portraitCrop;
   return (
     <div className={`portrait${large ? ' portrait-large' : ''}`}>
@@ -55,7 +50,11 @@ function Portrait({
                   top: `${(-100 * crop[1]) / crop[3]}%`,
                   objectFit: 'fill',
                 }
-              : undefined
+              : character.portraitPosition
+                ? {
+                    objectPosition: `${character.portraitPosition[0]}% ${character.portraitPosition[1]}%`,
+                  }
+                : undefined
           }
         />
       ) : (
@@ -72,7 +71,27 @@ function Portrait({
   );
 }
 
-export default function Game() {
+export default function Game({
+  universe = 'berserk',
+}: {
+  universe?: 'berserk' | 'hxh';
+}) {
+  const isHxh = universe === 'hxh';
+  const characters: readonly GameCharacter[] = isHxh
+    ? hxhCharacters
+    : berserkCharacters;
+  const {
+    challenge,
+    compare,
+    exactCharacter,
+    fields,
+    isFinished,
+    restore,
+    schedule,
+    search,
+    shareText,
+    storageKey,
+  } = isHxh ? hxh : berserk;
   const [session, setSession] = useState<Session | null>(null);
   const sessionRef = useRef<Session | null>(null);
   const [query, setQuery] = useState('');
@@ -136,7 +155,7 @@ export default function Game() {
       document.removeEventListener('visibilitychange', refresh);
       window.removeEventListener('storage', sync);
     };
-  }, []);
+  }, [restore, storageKey]);
 
   const daily = session ? challenge(session.date) : null;
   const guesses = (session?.guesses ?? []).filter((id) =>
@@ -296,7 +315,7 @@ export default function Game() {
   }
 
   return (
-    <>
+    <div className={isHxh ? 'hxh-theme' : undefined}>
       <a className="skip-link" href="#game">
         Pular para o jogo
       </a>
@@ -308,20 +327,45 @@ export default function Game() {
           </Link>
           <Link
             className="wordmark"
-            href="/berserkdle"
-            aria-label="Berserkdle, início"
+            href={isHxh ? '/hxh' : '/berserkdle'}
+            aria-label={
+              isHxh ? 'Hunter × Hunter DLE, início' : 'Berserkdle, início'
+            }
           >
-            <p className="japanese" aria-hidden="true">
-              ベルセルク
-            </p>
-            <h1 id="title">
-              BERSERK<span>DLE</span>
-            </h1>
+            {isHxh ? (
+              <>
+                <h1 id="title" className="sr-only">
+                  Hunter × Hunter DLE
+                </h1>
+                <Image
+                  className="hunter-logo"
+                  src="/hxh/images/logo-official.png"
+                  alt="Hunter × Hunter"
+                  width={336}
+                  height={145}
+                  preload
+                />
+                <span className="hunter-edition">DLE / EXAME DIÁRIO</span>
+              </>
+            ) : (
+              <>
+                <p className="japanese" aria-hidden="true">
+                  ベルセルク
+                </p>
+                <h1 id="title">
+                  BERSERK<span>DLE</span>
+                </h1>
+              </>
+            )}
           </Link>
-          <p className="hero-copy">Um novo destino. Todos os dias.</p>
+          <p className="hero-copy">
+            {isHxh
+              ? 'Uma nova caçada. Todos os dias.'
+              : 'Um novo destino. Todos os dias.'}
+          </p>
           <div className="game-toolbar">
             <span className="mode-badge">
-              <span aria-hidden="true">⚔</span> Clássico
+              <span aria-hidden="true">{isHxh ? '✦' : '⚔'}</span> Clássico
             </span>
             <span className="toolbar-divider" aria-hidden="true" />
             <button
@@ -348,14 +392,36 @@ export default function Game() {
           aria-busy={!session}
         >
           <div className="card-heading">
-            <p className="section-label">O DESAFIO DIÁRIO</p>
+            {isHxh && (
+              <div className="hunter-file">
+                <span>ASSOCIAÇÃO HUNTER</span>
+                <span>
+                  MISSÃO {daily ? String(daily.number).padStart(3, '0') : '—'}
+                </span>
+              </div>
+            )}
+            <p className="section-label">
+              {isHxh ? 'OBSERVE. COMPARE. DESCUBRA.' : 'O DESAFIO DIÁRIO'}
+            </p>
             <h2 id="game-title">
-              Quem é o personagem
-              <br />
-              de <em>Berserk</em> de hoje?
+              {isHxh ? (
+                <>
+                  Toda caçada começa
+                  <br />
+                  com <em>uma pista.</em>
+                </>
+              ) : (
+                <>
+                  Quem é o personagem
+                  <br />
+                  de <em>Berserk</em> de hoje?
+                </>
+              )}
             </h2>
             <p className="challenge-copy">
-              Siga as pistas. Desafie a causalidade.
+              {isHxh
+                ? 'Descubra o personagem de hoje. Seu Nen é a memória.'
+                : 'Siga as pistas. Desafie a causalidade.'}
             </p>
 
             {!finished && (
@@ -426,7 +492,7 @@ export default function Game() {
                         onPointerDown={(event) => event.preventDefault()}
                         onClick={() => submitGuess(c.name)}
                       >
-                        <Portrait id={c.id} name={c.name} />
+                        <Portrait character={c} />
                         <span>{c.name}</span>
                       </li>
                     ))}
@@ -487,7 +553,7 @@ export default function Game() {
                       >
                         <th scope="row">
                           <div className="character-cell" tabIndex={0}>
-                            <Portrait id={c.id} name={c.name} large />
+                            <Portrait character={c} large />
                             <span>
                               <span className="sr-only">
                                 Tentativa {guesses.length - index}:{' '}
@@ -543,6 +609,17 @@ export default function Game() {
               </table>
             </div>
           )}
+          {isHxh && guesses.length === 0 && (
+            <div className="hunter-empty">
+              <span aria-hidden="true">◎</span>
+              <p>
+                <strong>Seu alvo ainda é um mistério.</strong>
+                <br />
+                Dê o primeiro palpite para revelar as pistas.
+              </p>
+              <span className="hunter-unlimited">PALPITES ILIMITADOS</span>
+            </div>
+          )}
           {guesses.length > 0 && (
             <div className="legend" aria-label="Indicadores das pistas">
               <span>
@@ -565,7 +642,7 @@ export default function Game() {
             tabIndex={-1}
             ref={resultRef}
           >
-            <Portrait id={daily.answer.id} name={daily.answer.name} large />
+            <Portrait character={daily.answer} large />
             <h2 id="result-title">{`Você encontrou ${daily.answer.name}.`}</h2>
             <button className="primary" onClick={share}>
               Compartilhar resultado <span aria-hidden="true">↗</span>
@@ -587,8 +664,15 @@ export default function Game() {
           </section>
         )}
         <footer className="site-footer">
-          <span>Um desafio diário para quem carrega a marca.</span>
-          <span>Projeto de fãs · Universo de Kentaro Miura</span>
+          <span>
+            {isHxh
+              ? 'O próximo desafio está sempre à sua espera.'
+              : 'Um desafio diário para quem carrega a marca.'}
+          </span>
+          <span>
+            Projeto de fãs · Universo de{' '}
+            {isHxh ? 'Yoshihiro Togashi' : 'Kentaro Miura'}
+          </span>
         </footer>
       </main>
 
@@ -615,26 +699,48 @@ export default function Game() {
           listas são diferentes. <strong>Vermelho</strong>: nenhum valor em
           comum.
         </p>
-        <p>
-          A ordem é: Espadachim Negro → Era de Ouro → Convicção → Falcão Milenar
-          → Fantasia.
-        </p>
-        <p>
-          <strong>Arco de referência não é estreia.</strong> Natureza, núcleos e
-          armas/poderes podem reunir vários valores confirmados ao longo do
-          mangá. Griffith e Femto continuam como identidades separadas. Gênero e
-          arco têm apenas um valor. Personagens diferentes podem ter todas as
-          pistas iguais: apenas o nome correto vence.
-        </p>
-        <p>
-          Há spoilers de identidade e afiliação até Fantasia. O catálogo tem{' '}
-          {characters.length} fichas do mangá e o calendário se repete a cada{' '}
-          {schedule.length} dias a partir de 03/10/2026.
-        </p>
-        <p>
-          “Não informada” indica um atributo sem confirmação nas fontes. Na
-          coluna de armas, × representa ausência de arma cadastrada.
-        </p>
+        {isHxh ? (
+          <>
+            <p>A ordem dos arcos é: {hxhArcs.join(' → ')}.</p>
+            <p>
+              <strong>Arco de referência não é estreia.</strong> As fichas
+              representam fases marcantes até a Eleição. Afiliações incluem
+              vínculos anteriores; Tipo de Nen indica afinidade, não todas as
+              técnicas aprendidas. Kurapika também tem Especialização com os
+              olhos escarlates. “Não informado” indica ausência de confirmação.
+            </p>
+            <p>
+              Há spoilers até a Eleição. São {characters.length} personagens
+              centrais nomeados, sem figurantes anônimos. O calendário se repete
+              a cada {schedule.length} dias, a partir de 29/10/2026. Apenas
+              acertar o nome vence.
+            </p>
+          </>
+        ) : (
+          <>
+            <p>
+              A ordem é: Espadachim Negro → Era de Ouro → Convicção → Falcão
+              Milenar → Fantasia.
+            </p>
+            <p>
+              <strong>Arco de referência não é estreia.</strong> Natureza,
+              núcleos e armas/poderes podem reunir vários valores confirmados ao
+              longo do mangá. Griffith e Femto continuam como identidades
+              separadas. Gênero e arco têm apenas um valor. Personagens
+              diferentes podem ter todas as pistas iguais: apenas o nome correto
+              vence.
+            </p>
+            <p>
+              Há spoilers de identidade e afiliação até Fantasia. O catálogo tem{' '}
+              {characters.length} fichas do mangá e o calendário se repete a
+              cada {schedule.length} dias a partir de 03/10/2026.
+            </p>
+            <p>
+              “Não informada” indica um atributo sem confirmação nas fontes. Na
+              coluna de armas, × representa ausência de arma cadastrada.
+            </p>
+          </>
+        )}
         <p>
           O jogo muda à <strong>meia-noite de Brasília</strong>. O progresso é
           local; o resultado compartilhado mostra apenas quadrados, sem nomes ou
@@ -645,7 +751,7 @@ export default function Game() {
           <ul className="roster">
             {characters.map((c) => (
               <li key={c.id}>
-                <Portrait id={c.id} name={c.name} />
+                <Portrait character={c} />
                 <strong>{c.name}</strong> · {c.arc}
                 <p>
                   {c.gender} · {c.nature.join(', ')} · {c.group.join(', ')} ·{' '}
@@ -663,51 +769,83 @@ export default function Game() {
         </details>
         <details className="image-credits">
           <summary>Créditos das imagens</summary>
-          <p>
-            Fundo:{' '}
-            <a
-              href="https://hdqwalls.com/berserk-wallpaper"
-              target="_blank"
-              rel="noreferrer"
-            >
-              HDQWalls
-            </a>
-            . Retratos:{' '}
-            <a
-              href="https://berserk.fandom.com/wiki/Category:Characters_by_Source"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Berserk Wiki
-            </a>
-            ,{' '}
-            <a
-              href="https://www.darkhorse.com/books/14-937/berserk-volume-22-tpb/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Dark Horse
-            </a>{' '}
-            e{' '}
-            <a
-              href="https://myanimelist.net/manga/2/Berserk/characters"
-              target="_blank"
-              rel="noreferrer"
-            >
-              MyAnimeList
-            </a>
-            , obtidos via Jikan; Femto:{' '}
-            <a
-              href="https://tenor.com/view/femto-gif-22248771"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Tenor
-            </a>
-            . Berserk e seus personagens pertencem aos respectivos titulares.
-          </p>
+          {isHxh ? (
+            <p>
+              Logo:{' '}
+              <a
+                href="https://www.ntv.co.jp/hunterhunter/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Nippon TV
+              </a>
+              . Retratos:{' '}
+              <a
+                href="https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011/characters"
+                target="_blank"
+                rel="noreferrer"
+              >
+                MyAnimeList
+              </a>{' '}
+              e{' '}
+              <a
+                href="https://anilist.co/anime/11061/HUNTERHUNTER/characters"
+                target="_blank"
+                rel="noreferrer"
+              >
+                AniList
+              </a>
+              . Identidade visual inspirada em mapas e licenças Hunter. Hunter ×
+              Hunter e seus personagens pertencem a Yoshihiro Togashi e aos
+              respectivos titulares.
+            </p>
+          ) : (
+            <p>
+              Fundo:{' '}
+              <a
+                href="https://hdqwalls.com/berserk-wallpaper"
+                target="_blank"
+                rel="noreferrer"
+              >
+                HDQWalls
+              </a>
+              . Retratos:{' '}
+              <a
+                href="https://berserk.fandom.com/wiki/Category:Characters_by_Source"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Berserk Wiki
+              </a>
+              ,{' '}
+              <a
+                href="https://www.darkhorse.com/books/14-937/berserk-volume-22-tpb/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Dark Horse
+              </a>{' '}
+              e{' '}
+              <a
+                href="https://myanimelist.net/manga/2/Berserk/characters"
+                target="_blank"
+                rel="noreferrer"
+              >
+                MyAnimeList
+              </a>
+              , obtidos via Jikan; Femto:{' '}
+              <a
+                href="https://tenor.com/view/femto-gif-22248771"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Tenor
+              </a>
+              . Berserk e seus personagens pertencem aos respectivos titulares.
+            </p>
+          )}
         </details>
       </dialog>
-    </>
+    </div>
   );
 }

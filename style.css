@@ -1069,3 +1069,26 @@ html:lang(es) h1 {
     right: auto;
   }
 }
+.game-ticket + .game-ticket {
+  margin-top: 28px;
+}
+.hxh-ticket .game-art {
+  background: #173d31;
+}
+.hxh-ticket .art-title {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-size: clamp(26px, 3.6vw, 44px);
+  letter-spacing: -2px;
+  text-shadow: 2px 3px #123827;
+}
+.hxh-ticket .art-title span {
+  display: block;
+  color: #f5d36c;
+  font-size: 0.7em;
+  letter-spacing: 0.15em;
+  margin-top: 10px;
+}
+.hxh-ticket .game-art::after {
+  background: linear-gradient(180deg, #09272020, transparent 30%, #092720e0);
+}

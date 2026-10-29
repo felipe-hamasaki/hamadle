@@ -1,0 +1,467 @@
+[
+  {
+    "id": "gon",
+    "name": "Gon Freecss",
+    "file": "/hxh/images/gon.jpg",
+    "source": "https://myanimelist.net/character/30/Gon_Freecss/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/11/174517.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      50
+    ]
+  },
+  {
+    "id": "killua",
+    "name": "Killua Zoldyck",
+    "file": "/hxh/images/killua.jpg",
+    "source": "https://myanimelist.net/character/27/Killua_Zoldyck/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/8/235421.jpg",
+    "width": 224,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      35
+    ]
+  },
+  {
+    "id": "kurapika",
+    "name": "Kurapika",
+    "file": "/hxh/images/kurapika.png",
+    "source": "https://anilist.co/character/28",
+    "url": "https://s4.anilist.co/file/anilistcdn/character/large/b28-ivA7UGnfE40a.png",
+    "width": 230,
+    "height": 345,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      55
+    ]
+  },
+  {
+    "id": "leorio",
+    "name": "Leorio Paradinight",
+    "file": "/hxh/images/leorio.jpg",
+    "source": "https://myanimelist.net/character/29/Leorio_Paladiknight/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/11/549311.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      45
+    ]
+  },
+  {
+    "id": "hisoka",
+    "name": "Hisoka Morow",
+    "file": "/hxh/images/hisoka.jpg",
+    "source": "https://myanimelist.net/character/31/Hisoka_Morow/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/3/174561.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      50
+    ]
+  },
+  {
+    "id": "kite",
+    "name": "Kite",
+    "file": "/hxh/images/kite.jpg",
+    "source": "https://myanimelist.net/character/20594/Kite/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/5/203429.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      50
+    ]
+  },
+  {
+    "id": "netero",
+    "name": "Isaac Netero",
+    "file": "/hxh/images/netero.jpg",
+    "source": "https://myanimelist.net/character/14489/Isaac_Netero/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/12/244127.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      25
+    ]
+  },
+  {
+    "id": "illumi",
+    "name": "Illumi Zoldyck",
+    "file": "/hxh/images/illumi.jpg",
+    "source": "https://myanimelist.net/character/57/Illumi_Zoldyck/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/4/181317.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      60
+    ]
+  },
+  {
+    "id": "silva",
+    "name": "Silva Zoldyck",
+    "file": "/hxh/images/silva.jpg",
+    "source": "https://myanimelist.net/character/60/Silva_Zoldyck/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/7/292083.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      48
+    ]
+  },
+  {
+    "id": "zeno",
+    "name": "Zeno Zoldyck",
+    "file": "/hxh/images/zeno.jpg",
+    "source": "https://myanimelist.net/character/59/Zeno_Zoldyck/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/5/193007.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      65
+    ]
+  },
+  {
+    "id": "wing",
+    "name": "Wing",
+    "file": "/hxh/images/wing.jpg",
+    "source": "https://myanimelist.net/character/22521/Wing/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/3/168607.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      60
+    ]
+  },
+  {
+    "id": "ging",
+    "name": "Ging Freecss",
+    "file": "/hxh/images/ging.jpg",
+    "source": "https://myanimelist.net/character/26/Ging_Freecss/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/2/231795.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      45
+    ]
+  },
+  {
+    "id": "biscuit",
+    "name": "Biscuit Krueger",
+    "file": "/hxh/images/biscuit.jpg",
+    "source": "https://myanimelist.net/character/13898/Biscuit_Krueger/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/11/211789.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      30
+    ]
+  },
+  {
+    "id": "chrollo",
+    "name": "Chrollo Lucilfer",
+    "file": "/hxh/images/chrollo.jpg",
+    "source": "https://myanimelist.net/character/58/Chrollo_Lucilfer/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/4/205635.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      45
+    ]
+  },
+  {
+    "id": "machi",
+    "name": "Machi Komacine",
+    "file": "/hxh/images/machi.jpg",
+    "source": "https://myanimelist.net/character/5830/Machi_Komachine/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/10/175943.jpg",
+    "width": 214,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      45
+    ]
+  },
+  {
+    "id": "feitan",
+    "name": "Feitan Portor",
+    "file": "/hxh/images/feitan.jpg",
+    "source": "https://myanimelist.net/character/3195/Feitan_Portor/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/10/174721.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      55
+    ]
+  },
+  {
+    "id": "uvogin",
+    "name": "Uvogin",
+    "file": "/hxh/images/uvogin.jpg",
+    "source": "https://myanimelist.net/character/5836/Uvogin/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/14/205639.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      65
+    ]
+  },
+  {
+    "id": "pakunoda",
+    "name": "Pakunoda",
+    "file": "/hxh/images/pakunoda.jpg",
+    "source": "https://myanimelist.net/character/5835/Pakunoda/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/11/193011.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      50
+    ]
+  },
+  {
+    "id": "shizuku",
+    "name": "Shizuku Murasaki",
+    "file": "/hxh/images/shizuku.jpg",
+    "source": "https://myanimelist.net/character/5833/Shizuku_Murasaki/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/10/178469.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      65
+    ]
+  },
+  {
+    "id": "knuckle",
+    "name": "Knuckle Bine",
+    "file": "/hxh/images/knuckle.jpg",
+    "source": "https://myanimelist.net/character/29809/Knuckle_Bine/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/7/229649.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      35
+    ]
+  },
+  {
+    "id": "shoot",
+    "name": "Shoot McMahon",
+    "file": "/hxh/images/shoot.jpg",
+    "source": "https://myanimelist.net/character/29807/Shoot_McMahon/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/10/628172.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      25
+    ]
+  },
+  {
+    "id": "morel",
+    "name": "Morel Mackernasey",
+    "file": "/hxh/images/morel.jpg",
+    "source": "https://myanimelist.net/character/29806/Morel_Mackernasey/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/13/211097.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      20
+    ]
+  },
+  {
+    "id": "knov",
+    "name": "Knov",
+    "file": "/hxh/images/knov.jpg",
+    "source": "https://myanimelist.net/character/82925/Knov/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/6/215471.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      20
+    ]
+  },
+  {
+    "id": "palm",
+    "name": "Palm Siberia",
+    "file": "/hxh/images/palm.jpg",
+    "source": "https://myanimelist.net/character/34054/Palm_Siberia/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/13/213741.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      65
+    ]
+  },
+  {
+    "id": "komugi",
+    "name": "Komugi",
+    "file": "/hxh/images/komugi.jpg",
+    "source": "https://myanimelist.net/character/14313/Komugi/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/6/309854.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      45
+    ]
+  },
+  {
+    "id": "meruem",
+    "name": "Meruem",
+    "file": "/hxh/images/meruem.jpg",
+    "source": "https://myanimelist.net/character/23277/Meruem/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/4/254983.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      50
+    ]
+  },
+  {
+    "id": "neferpitou",
+    "name": "Neferpitou",
+    "file": "/hxh/images/neferpitou.jpg",
+    "source": "https://myanimelist.net/character/12300/Neferpitou/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/4/210417.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      45
+    ]
+  },
+  {
+    "id": "shaiapouf",
+    "name": "Shaiapouf",
+    "file": "/hxh/images/shaiapouf.jpg",
+    "source": "https://myanimelist.net/character/41135/Shaiapouf/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/9/230111.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      50
+    ]
+  },
+  {
+    "id": "menthuthuyoupi",
+    "name": "Menthuthuyoupi",
+    "file": "/hxh/images/menthuthuyoupi.jpg",
+    "source": "https://myanimelist.net/character/43953/Menthuthuyoupi/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/2/256781.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      50
+    ]
+  },
+  {
+    "id": "ikalgo",
+    "name": "Ikalgo",
+    "file": "/hxh/images/ikalgo.jpg",
+    "source": "https://anilist.co/character/29805",
+    "url": "https://s4.anilist.co/file/anilistcdn/character/large/29805-YicEgIbxmSkv.jpg",
+    "width": 230,
+    "height": 327,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      70
+    ]
+  },
+  {
+    "id": "meleoron",
+    "name": "Meleoron",
+    "file": "/hxh/images/meleoron.jpg",
+    "source": "https://myanimelist.net/character/29808/Meleoron/pics",
+    "url": "https://cdn.myanimelist.net/images/characters/8/205215.jpg",
+    "width": 225,
+    "height": 350,
+    "selection": "Retrato selecionado manualmente por reconhecimento e legibilidade nas miniaturas.",
+    "accessed": "2026-10-29",
+    "objectPosition": [
+      50,
+      30
+    ]
+  }
+]

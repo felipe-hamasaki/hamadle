@@ -8,6 +8,9 @@ const types = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
+  ".gif": "image/gif",
+  ".jpg": "image/jpeg",
+  ".png": "image/png",
   ".svg": "image/svg+xml",
   ".webp": "image/webp",
   ".woff2": "font/woff2",
@@ -30,6 +33,29 @@ createServer(async (request, response) => {
           upstream.headers.get("content-type") || "application/octet-stream",
       });
       response.end(Buffer.from(await upstream.arrayBuffer()));
+      return;
+    }
+    if (
+      url.pathname === "/hxh" ||
+      url.pathname === "/hxh/" ||
+      url.pathname.startsWith("/hxh/")
+    ) {
+      const pathname = decodeURIComponent(
+        url.pathname === "/hxh" || url.pathname === "/hxh/"
+          ? "/hxh.html"
+          : url.pathname,
+      );
+      const output = resolve(root, "portal-dist");
+      const file = resolve(output, "." + pathname);
+      if (!file.startsWith(output + sep)) {
+        response.writeHead(404).end("Not found");
+        return;
+      }
+      const content = await readFile(file);
+      response.writeHead(200, {
+        "content-type": types[extname(file)] || "application/octet-stream",
+      });
+      response.end(content);
       return;
     }
     const pathname = decodeURIComponent(
