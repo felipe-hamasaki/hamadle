@@ -992,3 +992,9 @@ td {
 .hub-card-hxh .hub-card-art strong {
   font-size: 18px;
 }
+
+.hub-card-kimetsu .hub-card-art {
+  background:
+    linear-gradient(90deg, #07241eb0, #0005),
+    url('/kimetsu/images/key-visual.jpg') center 30% / cover;
+}

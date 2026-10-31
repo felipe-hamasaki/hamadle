@@ -51,6 +51,20 @@ export default function Home() {
             <span className="hub-play">Jogar agora ↗</span>
           </div>
         </Link>
+        <Link href="/kimetsu" className="hub-card hub-card-kimetsu">
+          <div className="hub-card-art" aria-hidden="true">
+            <span>⚔</span>
+            <strong>DEMON SLAYER</strong>
+          </div>
+          <div className="hub-card-content">
+            <p className="hub-eyebrow">DESAFIO DIÁRIO · PERSONAGENS</p>
+            <h3>Demon Slayer DLE</h3>
+            <p>
+              De Tanjiro aos Hashira. Siga as pistas de respirações e poderes.
+            </p>
+            <span className="hub-play">Jogar agora ↗</span>
+          </div>
+        </Link>
         <p className="hub-soon">Outros universos chegam em breve.</p>
       </section>
       <footer className="hub-footer">

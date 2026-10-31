@@ -1,0 +1,287 @@
+@font-face {
+  font-family: 'Kimetsu Display';
+  src: url('/kimetsu/fonts/kaisei-tokumin.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+.kimetsu-theme {
+  --paper: #f4eddf;
+  --green: #215840;
+  --red: #7e303e;
+  min-height: 100dvh;
+  isolation: isolate;
+  background: #071914;
+  color: #f4eddf;
+}
+.kimetsu-theme .atmosphere {
+  background:
+    linear-gradient(90deg, #061b16d9, #061b1680 48%, #071914db),
+    linear-gradient(0deg, #071914 2%, transparent 85%),
+    url('/kimetsu/images/key-visual.jpg') center 32% / cover no-repeat;
+}
+.kimetsu-theme .shell {
+  width: min(900px, calc(100% - 32px));
+  padding-top: 24px;
+}
+.kimetsu-theme .hub-return {
+  color: #e6e7d6;
+}
+.kimetsu-theme .hero {
+  margin-bottom: 28px;
+}
+.kimetsu-theme .wordmark {
+  padding: 8px 16px;
+}
+.kimetsu-theme .japanese {
+  color: #f0d8af;
+  font-size: 25px;
+  letter-spacing: 0.3em;
+}
+.kimetsu-theme .hero h1 {
+  font:
+    800 clamp(29px, 6vw, 54px)/1.25 'Kimetsu Display',
+    Georgia,
+    serif;
+  letter-spacing: -0.06em;
+  font-style: normal;
+  -webkit-text-stroke: 0;
+  text-shadow:
+    0 3px 0 #000,
+    0 8px 24px #000;
+}
+.kimetsu-theme .hero h1 span {
+  display: block;
+  font:
+    800 23px 'Kimetsu Display',
+    serif;
+  color: #f18f91;
+  letter-spacing: 0.3em;
+  margin-top: 4px;
+}
+.slayer-edition {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: #e3d8bd;
+}
+.kimetsu-theme .hero-copy {
+  color: #f2e9d6;
+  font-size: 10px;
+}
+.kimetsu-theme .game-toolbar,
+.kimetsu-theme .reset-button {
+  background: #0a2925ed;
+  border-color: #73968a;
+}
+.kimetsu-theme .mode-badge > span {
+  color: #f0ba82;
+}
+.kimetsu-theme .card-heading {
+  width: min(100%, 490px);
+  padding: 30px 28px 22px;
+  border: 1px solid #b5ad91;
+  border-top: 5px solid #367b65;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #fff9ed, #e7e5d6);
+  box-shadow: 0 12px 40px #0007;
+}
+.kimetsu-theme .card-heading::before,
+.kimetsu-theme .card-heading::after {
+  color: #38715a;
+}
+.kimetsu-theme .card-heading h2 {
+  font-family: 'Kimetsu Display', Georgia, serif;
+  font-size: clamp(22px, 4vw, 29px);
+  line-height: 1.5;
+  letter-spacing: -0.06em;
+}
+.kimetsu-theme .card-heading h2 em {
+  color: #8a303c;
+}
+.kimetsu-theme .section-label {
+  color: #355d4d;
+  letter-spacing: 0.18em;
+}
+.kimetsu-theme .primary {
+  background: #215840;
+  border-color: #57836b;
+  color: #fff8ec;
+}
+.kimetsu-theme .primary:hover {
+  background: #173e31;
+}
+.kimetsu-theme .search-field {
+  border-color: #879b87;
+}
+.kimetsu-theme .suggestions {
+  background: #f5f1e6;
+  border-color: #6f8c78;
+}
+.kimetsu-theme .suggestions li:hover,
+.kimetsu-theme .suggestions li[aria-selected='true'] {
+  background: #d5e4d8;
+}
+.kimetsu-theme .portrait {
+  border-radius: 5px;
+}
+.kimetsu-theme .help-dialog {
+  border-color: #477762;
+}
+.kimetsu-theme .feedback,
+.kimetsu-theme .storage-warning {
+  background: #102e27;
+  border-color: #719583;
+}
+.kimetsu-theme .site-footer,
+.kimetsu-theme .site-footer span:last-child {
+  color: #d1dcd1;
+}
+.kimetsu-theme .result {
+  background: #0c2923ef;
+  border-color: #719583;
+}
+@media (max-width: 600px) {
+  .kimetsu-theme .card-heading {
+    padding: 25px 18px 18px;
+  }
+  .kimetsu-theme .atmosphere {
+    background-position:
+      center,
+      center,
+      58% top;
+  }
+}
+@font-face {
+  font-family: 'Slayer Sans';
+  src: url('/kimetsu/fonts/dm-sans.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+.kimetsu-theme {
+  font-family: 'Slayer Sans', sans-serif;
+}
+.kimetsu-theme .card-heading h2 {
+  font-family: 'Slayer Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+.kimetsu-theme .card-heading h2 em {
+  font-style: normal;
+}
+.kimetsu-theme .challenge-copy,
+.kimetsu-theme .suggestions li,
+.kimetsu-theme .mode-badge,
+.kimetsu-theme .help-dialog h2,
+.kimetsu-theme .result h2 {
+  font-family: 'Slayer Sans', sans-serif;
+}
+.kimetsu-theme .challenge-copy {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.kimetsu-theme .shell {
+  padding-top: 12px;
+}
+.kimetsu-theme .hero {
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.kimetsu-theme .hub-return {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin: 0;
+  padding: 4px 0;
+  font-size: 12px;
+}
+.kimetsu-theme .wordmark {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: block;
+  padding: 0;
+}
+.kimetsu-theme .wordmark:hover {
+  filter: none;
+}
+.kimetsu-theme .kimetsu-logo {
+  display: block;
+  width: 180px;
+  height: 148px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.kimetsu-theme .hero-copy {
+  display: none;
+}
+.kimetsu-theme .game-toolbar {
+  grid-column: 2;
+  gap: 10px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.kimetsu-theme .mode-badge {
+  font-size: 12px;
+}
+.kimetsu-theme .mode-badge > span {
+  font-size: 18px;
+}
+.kimetsu-theme .reset-button {
+  grid-column: 3;
+  margin: 0;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+}
+.kimetsu-theme .reset-button small {
+  display: none;
+}
+.kimetsu-theme .card-heading {
+  padding: 22px 24px;
+}
+.kimetsu-theme .card-heading .section-label,
+.kimetsu-theme .challenge-copy {
+  display: none;
+}
+.kimetsu-theme .card-heading h2 {
+  margin: 0 0 20px;
+  font-size: clamp(23px, 4vw, 28px);
+}
+.kimetsu-theme .guess-form {
+  margin-top: 0;
+}
+@media (max-width: 600px) {
+  .kimetsu-theme .hero {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .kimetsu-theme .kimetsu-logo {
+    width: 150px;
+    height: 123px;
+  }
+  .kimetsu-theme .card-heading {
+    padding: 22px 16px;
+  }
+}
+.kimetsu-theme table {
+  min-width: 1160px;
+}
+.kimetsu-theme .clue.unknown {
+  background: #48535b;
+  border-color: #88929a;
+}
+.kimetsu-theme .clue.older::after {
+  content: '↑';
+  font-size: 24px;
+}
+.kimetsu-theme .clue.younger::after {
+  content: '↓';
+  font-size: 24px;
+}

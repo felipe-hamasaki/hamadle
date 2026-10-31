@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 const portal = process.env.PLAYWRIGHT_PORTAL === '1';
 export default defineConfig({
   testDir: './tests/e2e',
-  testMatch: portal ? '**/hxh.spec.ts' : '**/*.spec.ts',
+  testMatch: portal ? '**/{hxh,kimetsu}.spec.ts' : '**/*.spec.ts',
   fullyParallel: true,
   workers: 2,
   reporter: [['list']],

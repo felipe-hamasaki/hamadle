@@ -16,6 +16,11 @@ import {
 } from '@/data/hxh-characters';
 import * as berserk from '@/lib/game';
 import * as hxh from '@/lib/hxh-game';
+import * as kimetsu from '@/lib/kimetsu-game';
+import {
+  characters as kimetsuCharacters,
+  arcs as kimetsuArcs,
+} from '@/data/kimetsu-characters';
 import {
   clueLabels,
   dateInBrasilia,
@@ -74,12 +79,15 @@ function Portrait({
 export default function Game({
   universe = 'berserk',
 }: {
-  universe?: 'berserk' | 'hxh';
+  universe?: 'berserk' | 'hxh' | 'kimetsu';
 }) {
   const isHxh = universe === 'hxh';
-  const characters: readonly GameCharacter[] = isHxh
-    ? hxhCharacters
-    : berserkCharacters;
+  const isKimetsu = universe === 'kimetsu';
+  const characters: readonly GameCharacter[] = isKimetsu
+    ? kimetsuCharacters
+    : isHxh
+      ? hxhCharacters
+      : berserkCharacters;
   const {
     challenge,
     compare,
@@ -91,7 +99,7 @@ export default function Game({
     search,
     shareText,
     storageKey,
-  } = isHxh ? hxh : berserk;
+  } = isKimetsu ? kimetsu : isHxh ? hxh : berserk;
   const [session, setSession] = useState<Session | null>(null);
   const sessionRef = useRef<Session | null>(null);
   const [query, setQuery] = useState('');
@@ -219,9 +227,14 @@ export default function Game({
             : index - 1,
       );
     }
-    if (event.key === 'Enter' && expanded && active >= 0 && matches[active]) {
+    if (
+      event.key === 'Enter' &&
+      !event.nativeEvent.isComposing &&
+      expanded &&
+      matches[active >= 0 ? active : 0]
+    ) {
       event.preventDefault();
-      choose(matches[active].name);
+      choose(matches[active >= 0 ? active : 0].name);
     }
   }
 
@@ -315,7 +328,9 @@ export default function Game({
   }
 
   return (
-    <div className={isHxh ? 'hxh-theme' : undefined}>
+    <div
+      className={isKimetsu ? 'kimetsu-theme' : isHxh ? 'hxh-theme' : undefined}
+    >
       <a className="skip-link" href="#game">
         Pular para o jogo
       </a>
@@ -327,12 +342,30 @@ export default function Game({
           </Link>
           <Link
             className="wordmark"
-            href={isHxh ? '/hxh' : '/berserkdle'}
+            href={isKimetsu ? '/kimetsu' : isHxh ? '/hxh' : '/berserkdle'}
             aria-label={
-              isHxh ? 'Hunter × Hunter DLE, início' : 'Berserkdle, início'
+              isKimetsu
+                ? 'Demon Slayer DLE, início'
+                : isHxh
+                  ? 'Hunter × Hunter DLE, início'
+                  : 'Berserkdle, início'
             }
           >
-            {isHxh ? (
+            {isKimetsu ? (
+              <>
+                <h1 id="title" className="sr-only">
+                  Demon Slayer DLE
+                </h1>
+                <Image
+                  className="kimetsu-logo"
+                  src="/kimetsu/images/logo-official.png"
+                  alt="Demon Slayer: Kimetsu no Yaiba"
+                  width={320}
+                  height={200}
+                  preload
+                />
+              </>
+            ) : isHxh ? (
               <>
                 <h1 id="title" className="sr-only">
                   Hunter × Hunter DLE
@@ -359,9 +392,11 @@ export default function Game({
             )}
           </Link>
           <p className="hero-copy">
-            {isHxh
-              ? 'Uma nova caçada. Todos os dias.'
-              : 'Um novo destino. Todos os dias.'}
+            {isKimetsu
+              ? 'Respire fundo. Siga as pistas.'
+              : isHxh
+                ? 'Uma nova caçada. Todos os dias.'
+                : 'Um novo destino. Todos os dias.'}
           </p>
           <div className="game-toolbar">
             <span className="mode-badge">
@@ -401,10 +436,20 @@ export default function Game({
               </div>
             )}
             <p className="section-label">
-              {isHxh ? 'OBSERVE. COMPARE. DESCUBRA.' : 'O DESAFIO DIÁRIO'}
+              {isKimetsu
+                ? 'MISSÃO DO ESQUADRÃO'
+                : isHxh
+                  ? 'OBSERVE. COMPARE. DESCUBRA.'
+                  : 'O DESAFIO DIÁRIO'}
             </p>
             <h2 id="game-title">
-              {isHxh ? (
+              {isKimetsu ? (
+                <>
+                  Quem é o personagem
+                  <br />
+                  de <em>Demon Slayer</em> de hoje?
+                </>
+              ) : isHxh ? (
                 <>
                   Toda caçada começa
                   <br />
@@ -419,9 +464,11 @@ export default function Game({
               )}
             </h2>
             <p className="challenge-copy">
-              {isHxh
-                ? 'Descubra o personagem de hoje. Seu Nen é a memória.'
-                : 'Siga as pistas. Desafie a causalidade.'}
+              {isKimetsu
+                ? 'Da primeira respiração ao último palpite.'
+                : isHxh
+                  ? 'Descubra o personagem de hoje. Seu Nen é a memória.'
+                  : 'Siga as pistas. Desafie a causalidade.'}
             </p>
 
             {!finished && (
@@ -591,6 +638,12 @@ export default function Game({
                                         </span>
                                       ),
                                     )
+                                  ) : key === 'age' ? (
+                                    c.age == null ? (
+                                      'Indefinido'
+                                    ) : (
+                                      `${c.age} anos`
+                                    )
                                   ) : (
                                     c[key]
                                   )}
@@ -665,13 +718,19 @@ export default function Game({
         )}
         <footer className="site-footer">
           <span>
-            {isHxh
-              ? 'O próximo desafio está sempre à sua espera.'
-              : 'Um desafio diário para quem carrega a marca.'}
+            {isKimetsu
+              ? 'Uma nova missão a cada amanhecer.'
+              : isHxh
+                ? 'O próximo desafio está sempre à sua espera.'
+                : 'Um desafio diário para quem carrega a marca.'}
           </span>
           <span>
             Projeto de fãs · Universo de{' '}
-            {isHxh ? 'Yoshihiro Togashi' : 'Kentaro Miura'}
+            {isKimetsu
+              ? 'Koyoharu Gotouge'
+              : isHxh
+                ? 'Yoshihiro Togashi'
+                : 'Kentaro Miura'}
           </span>
         </footer>
       </main>
@@ -699,7 +758,35 @@ export default function Game({
           listas são diferentes. <strong>Vermelho</strong>: nenhum valor em
           comum.
         </p>
-        {isHxh ? (
+        {isKimetsu ? (
+          <>
+            <p>A ordem dos arcos é: {kimetsuArcs.join(' → ')}.</p>
+            <p>
+              Idade cronológica de referência após o treinamento inicial
+              (Sabito: fase humana). Idades aproximadas ou não confirmadas ficam
+              indefinidas, inclusive para demônios. ↑ indica mais velho e ↓ mais
+              jovem. Cinza significa informação indefinida, sem indicar
+              igualdade. Arma é separada da respiração/poder; “Nenhuma”
+              significa ausência conhecida, não falta de informação. Posição
+              considera a fase de referência, incluindo ex-Hashira.
+            </p>
+            <p>
+              <strong>Arco de referência não é estreia.</strong> As fichas
+              retratam fases marcantes até o Treinamento dos Hashira. Afiliações
+              incluem vínculos anteriores: Tengen e Urokodaki também aparecem
+              como Hashira. Natureza considera a fase retratada; Genya é humano,
+              apesar da assimilação temporária de poderes demoníacos. Respiração
+              / poder reúne estilos e habilidades, incluindo Hinokami Kagura
+              para Tanjiro.
+            </p>
+            <p>
+              Há spoilers até o Treinamento dos Hashira. São {characters.length}{' '}
+              personagens relevantes, sem figurantes ou formas duplicadas. O
+              calendário se repete a cada {schedule.length} dias, a partir de
+              30/10/2026. Apenas acertar o nome vence.
+            </p>
+          </>
+        ) : isHxh ? (
           <>
             <p>A ordem dos arcos é: {hxhArcs.join(' → ')}.</p>
             <p>
@@ -756,6 +843,14 @@ export default function Game({
                 <p>
                   {c.gender} · {c.nature.join(', ')} · {c.group.join(', ')} ·{' '}
                   {c.weapon.join(', ')}
+                  {isKimetsu && (
+                    <>
+                      {' '}
+                      · Arma: {c.equipment?.join(', ') ?? 'Indefinido'} · Idade:{' '}
+                      {c.age == null ? 'Indefinido' : `${c.age} anos`} ·
+                      Posição: {c.position?.join(', ') ?? 'Indefinido'}
+                    </>
+                  )}
                 </p>
                 <p>
                   {c.note}{' '}
@@ -769,7 +864,21 @@ export default function Game({
         </details>
         <details className="image-credits">
           <summary>Créditos das imagens</summary>
-          {isHxh ? (
+          {isKimetsu ? (
+            <p>
+              Retratos e arte promocional:{' '}
+              <a
+                href="https://demonslayer-anime.com/hta/character/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                site oficial de Demon Slayer
+              </a>
+              , com imagens das temporadas correspondentes. Imagens servidas
+              localmente e enquadradas no rosto. Demon Slayer: Kimetsu no Yaiba
+              pertence a Koyoharu Gotouge / SHUEISHA, Aniplex e ufotable.
+            </p>
+          ) : isHxh ? (
             <p>
               Logo:{' '}
               <a

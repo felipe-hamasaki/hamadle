@@ -36,13 +36,15 @@ createServer(async (request, response) => {
       return;
     }
     if (
+      url.pathname === "/kimetsu" ||
+      url.pathname.startsWith("/kimetsu/") ||
       url.pathname === "/hxh" ||
       url.pathname === "/hxh/" ||
       url.pathname.startsWith("/hxh/")
     ) {
       const pathname = decodeURIComponent(
-        url.pathname === "/hxh" || url.pathname === "/hxh/"
-          ? "/hxh.html"
+        /^\/(hxh|kimetsu)\/?$/.test(url.pathname)
+          ? `/${url.pathname.split("/")[1]}.html`
           : url.pathname,
       );
       const output = resolve(root, "portal-dist");

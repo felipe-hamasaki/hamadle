@@ -14,7 +14,7 @@ for (const file of [
   });
 }
 
-// Export only the HxH game; Berserk remains on its existing upstream.
+// Shared Next assets retain the /hxh prefix; Berserk stays on its upstream.
 await cp(
   new URL('../out/hxh.html', import.meta.url),
   new URL('hxh.html', output),
@@ -33,5 +33,15 @@ await cp(
 await cp(
   new URL('../public/hxh/fonts/', import.meta.url),
   new URL('hxh/fonts/', output),
+  { recursive: true },
+);
+
+await cp(
+  new URL('../out/kimetsu.html', import.meta.url),
+  new URL('kimetsu.html', output),
+);
+await cp(
+  new URL('../public/kimetsu/', import.meta.url),
+  new URL('kimetsu/', output),
   { recursive: true },
 );

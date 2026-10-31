@@ -1,0 +1,356 @@
+[
+  {
+    "id": "tanjiro",
+    "file": "/kimetsu/images/tanjiro-user.png",
+    "imageSource": "codex-clipboard-9f02e3cf-f70f-441b-a991-9d8d2823ec28.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/tanjiro-user.png",
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "nezuko",
+    "file": "/kimetsu/images/nezuko-user.png",
+    "imageSource": "codex-clipboard-3a12af93-54a5-4ecd-8521-2852bbcc1c50.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/nezuko-user.png",
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "zenitsu",
+    "file": "/kimetsu/images/zenitsu-user.png",
+    "imageSource": "codex-clipboard-a6ccb303-770b-4b6e-a242-b28dc122df20.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/zenitsu-user.png",
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "inosuke",
+    "file": "/kimetsu/images/inosuke.webp",
+    "imageSource": "https://demonslayer-anime.com/infinitycastle/assets_1st/img/chara/img_chara_inosuke.jpg",
+    "source": "https://demonslayer-anime.com/infinitycastle/character/",
+    "originalFile": "/kimetsu/images/inosuke.jpg",
+    "cropPixels": [
+      500,
+      24,
+      1370,
+      894
+    ],
+    "sourceDimensions": [
+      1700,
+      956
+    ],
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "kanao",
+    "file": "/kimetsu/images/kanao-user.png",
+    "imageSource": "codex-clipboard-92d41975-e271-4be6-a706-ebaaf8303f00.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/kanao-user.png",
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "genya",
+    "file": "/kimetsu/images/genya-user.png",
+    "imageSource": "codex-clipboard-9fa182c7-76a1-4a35-b62f-bc673ea7585a.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/genya-user.png"
+  },
+  {
+    "id": "giyu",
+    "file": "/kimetsu/images/giyu.webp",
+    "imageSource": "https://demonslayer-anime.com/hta/assets/img/chara/img_chara_giyu.jpg",
+    "source": "https://demonslayer-anime.com/hta/character/",
+    "originalFile": "/kimetsu/images/giyu.jpg",
+    "cropPixels": [
+      641,
+      63,
+      1343,
+      765
+    ]
+  },
+  {
+    "id": "shinobu",
+    "file": "/kimetsu/images/shinobu.webp",
+    "imageSource": "https://demonslayer-anime.com/hta/assets/img/chara/img_chara_shinobu.jpg",
+    "source": "https://demonslayer-anime.com/hta/character/",
+    "originalFile": "/kimetsu/images/shinobu.jpg",
+    "cropPixels": [
+      293,
+      81,
+      923,
+      711
+    ]
+  },
+  {
+    "id": "rengoku",
+    "file": "/kimetsu/images/rengoku.webp",
+    "imageSource": "https://demonslayer-anime.com/mugentrain/assets/img/character/img_cha_05.jpg",
+    "source": "https://demonslayer-anime.com/mugentrain/character/",
+    "originalFile": "/kimetsu/images/rengoku.jpg",
+    "cropPixels": [
+      513,
+      18,
+      1323,
+      828
+    ]
+  },
+  {
+    "id": "tengen",
+    "file": "/kimetsu/images/tengen.webp",
+    "imageSource": "https://demonslayer-anime.com/eda/assets/img/character/img/img_tengen.jpg",
+    "source": "https://demonslayer-anime.com/eda/character/",
+    "originalFile": "/kimetsu/images/tengen.jpg",
+    "cropPixels": [
+      306,
+      0,
+      704,
+      398
+    ],
+    "sourceDimensions": [
+      1010,
+      568
+    ],
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "mitsuri",
+    "file": "/kimetsu/images/mitsuri-user.png",
+    "imageSource": "codex-clipboard-eae250a4-91d3-4640-bc4a-56553428c8b9.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/mitsuri-user.png",
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "muichiro",
+    "file": "/kimetsu/images/muichiro.webp",
+    "imageSource": "https://demonslayer-anime.com/risshihen/assets/img/character/img_chara_33.jpg",
+    "source": "https://demonslayer-anime.com/risshihen/character/?chara=muichiro",
+    "originalFile": "/kimetsu/images/muichiro.jpg",
+    "cropPixels": [
+      98,
+      0,
+      566,
+      468
+    ],
+    "sourceDimensions": [
+      850,
+      478
+    ],
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "obanai",
+    "file": "/kimetsu/images/obanai.webp",
+    "imageSource": "https://demonslayer-anime.com/hta/assets/img/chara/img_chara_iguro.jpg",
+    "source": "https://demonslayer-anime.com/hta/character/",
+    "originalFile": "/kimetsu/images/obanai.jpg",
+    "cropPixels": [
+      248,
+      58,
+      1032,
+      842
+    ]
+  },
+  {
+    "id": "sanemi",
+    "file": "/kimetsu/images/sanemi.webp",
+    "imageSource": "https://demonslayer-anime.com/hta/assets/img/chara/img_chara_sanemi.jpg",
+    "source": "https://demonslayer-anime.com/hta/character/",
+    "originalFile": "/kimetsu/images/sanemi.jpg",
+    "cropPixels": [
+      387,
+      6,
+      893,
+      512
+    ]
+  },
+  {
+    "id": "gyomei",
+    "file": "/kimetsu/images/gyomei-user.png",
+    "imageSource": "codex-clipboard-f2fb579b-3c6e-4f5c-99ba-868756b7b950.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/gyomei-user.png"
+  },
+  {
+    "id": "kagaya",
+    "file": "/kimetsu/images/kagaya.webp",
+    "imageSource": "https://demonslayer-anime.com/hta/assets/img/chara/img_chara_kagaya.jpg",
+    "source": "https://demonslayer-anime.com/hta/character/",
+    "originalFile": "/kimetsu/images/kagaya.jpg",
+    "cropPixels": [
+      322,
+      113,
+      1086,
+      878
+    ]
+  },
+  {
+    "id": "tamayo",
+    "file": "/kimetsu/images/tamayo.webp",
+    "imageSource": "https://demonslayer-anime.com/hta/assets/img/chara/img_chara_tamayo.jpg",
+    "source": "https://demonslayer-anime.com/hta/character/",
+    "originalFile": "/kimetsu/images/tamayo.jpg",
+    "cropPixels": [
+      399,
+      0,
+      1137,
+      738
+    ]
+  },
+  {
+    "id": "yushiro",
+    "file": "/kimetsu/images/yushiro.webp",
+    "imageSource": "https://demonslayer-anime.com/hta/assets/img/chara/img_chara_yushiro.jpg",
+    "source": "https://demonslayer-anime.com/hta/character/",
+    "originalFile": "/kimetsu/images/yushiro.jpg",
+    "cropPixels": [
+      347,
+      27,
+      1157,
+      837
+    ]
+  },
+  {
+    "id": "muzan",
+    "file": "/kimetsu/images/muzan-user.png",
+    "imageSource": "codex-clipboard-ebfd5354-d564-42b8-bb78-88ab021d149f.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/muzan-user.png",
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "rui",
+    "file": "/kimetsu/images/rui.webp",
+    "imageSource": "https://demonslayer-anime.com/risshihen/assets/img/character/img_chara_23.jpg",
+    "source": "https://demonslayer-anime.com/risshihen/character/",
+    "originalFile": "/kimetsu/images/rui.jpg",
+    "cropPixels": [
+      167,
+      0,
+      564,
+      397
+    ]
+  },
+  {
+    "id": "enmu",
+    "file": "/kimetsu/images/enmu-user.png",
+    "imageSource": "codex-clipboard-bef19453-ea9f-4b15-89cd-0a79b78afabe.png",
+    "source": "Anexo fornecido pelo usuário",
+    "originalFile": "/kimetsu/images/enmu-user.png"
+  },
+  {
+    "id": "akaza",
+    "file": "/kimetsu/images/akaza.webp",
+    "imageSource": "https://demonslayer-anime.com/mugentrain/assets/img/character/img_cha_10.jpg",
+    "source": "https://demonslayer-anime.com/mugentrain/character/",
+    "originalFile": "/kimetsu/images/akaza.jpg",
+    "cropPixels": [
+      666,
+      99,
+      1170,
+      603
+    ]
+  },
+  {
+    "id": "daki",
+    "file": "/kimetsu/images/daki.webp",
+    "imageSource": "https://demonslayer-anime.com/eda/assets/img/character/img/img_daki.jpg",
+    "source": "https://demonslayer-anime.com/eda/character/?id=13",
+    "originalFile": "/kimetsu/images/daki.jpg",
+    "cropPixels": [
+      260,
+      0,
+      771,
+      511
+    ],
+    "sourceDimensions": [
+      1010,
+      568
+    ],
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "gyutaro",
+    "file": "/kimetsu/images/gyutaro.webp",
+    "imageSource": "https://demonslayer-anime.com/eda/story/SYS/CONTENTS/story_2205_photo_1644123070403946403",
+    "source": "https://demonslayer-anime.com/eda/story/ep10.html",
+    "originalFile": "/kimetsu/images/gyutaro.jpg",
+    "cropPixels": [
+      520,
+      4,
+      1161,
+      645
+    ],
+    "sourceDimensions": [
+      1200,
+      675
+    ],
+    "reviewedOn": "2026-10-30"
+  },
+  {
+    "id": "hantengu",
+    "file": "/kimetsu/images/hantengu.webp",
+    "imageSource": "https://demonslayer-anime.com/sva/assets/img/character/thumb/img_hantengu.jpg",
+    "source": "https://demonslayer-anime.com/sva/character/",
+    "originalFile": "/kimetsu/images/hantengu.jpg",
+    "cropPixels": [
+      111,
+      22,
+      313,
+      225
+    ]
+  },
+  {
+    "id": "gyokko",
+    "file": "/kimetsu/images/gyokko.webp",
+    "imageSource": "https://demonslayer-anime.com/sva/assets/img/character/thumb/img_gyokuko.jpg",
+    "source": "https://demonslayer-anime.com/sva/character/",
+    "originalFile": "/kimetsu/images/gyokko.jpg",
+    "cropPixels": [
+      43,
+      7,
+      245,
+      209
+    ]
+  },
+  {
+    "id": "urokodaki",
+    "file": "/kimetsu/images/urokodaki.webp",
+    "imageSource": "https://demonslayer-anime.com/risshihen/assets/img/character/img_chara_06.jpg",
+    "source": "https://demonslayer-anime.com/risshihen/character/",
+    "originalFile": "/kimetsu/images/urokodaki.jpg",
+    "cropPixels": [
+      307,
+      0,
+      713,
+      406
+    ]
+  },
+  {
+    "id": "sabito",
+    "file": "/kimetsu/images/sabito.webp",
+    "imageSource": "https://demonslayer-anime.com/risshihen/assets/img/character/img_chara_08.jpg",
+    "source": "https://demonslayer-anime.com/risshihen/character/",
+    "originalFile": "/kimetsu/images/sabito.jpg",
+    "cropPixels": [
+      146,
+      0,
+      585,
+      440
+    ]
+  },
+  {
+    "id": "haganezuka",
+    "file": "/kimetsu/images/haganezuka.webp",
+    "imageSource": "https://demonslayer-anime.com/sva/assets/img/character/thumb/img_haganeduka.jpg",
+    "source": "https://demonslayer-anime.com/sva/character/",
+    "originalFile": "/kimetsu/images/haganezuka.jpg",
+    "cropPixels": [
+      90,
+      4,
+      278,
+      194
+    ]
+  }
+]

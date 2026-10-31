@@ -11,6 +11,9 @@ export type GameCharacter = {
   group: readonly string[];
   weapon: readonly string[];
   arc: string;
+  equipment?: readonly string[];
+  age?: number | null;
+  position?: readonly string[];
   note: string;
   source: string;
 };
@@ -22,9 +25,21 @@ export const fields = [
   { key: 'weapon', label: 'Armas / poderes' },
   { key: 'arc', label: 'Arco de referência' },
 ] as const;
-export type Field = (typeof fields)[number]['key'];
-export type Clue = 'match' | 'partial' | 'earlier' | 'later' | 'miss';
+export type Field =
+  (typeof fields)[number]['key'] | 'equipment' | 'age' | 'position';
+export type Clue =
+  | 'match'
+  | 'partial'
+  | 'earlier'
+  | 'later'
+  | 'miss'
+  | 'unknown'
+  | 'older'
+  | 'younger';
 export const clueLabels: Record<Clue, string> = {
+  unknown: 'Informação indefinida',
+  older: 'Resposta mais velha',
+  younger: 'Resposta mais jovem',
   match: 'Igual',
   partial: 'Parcial: pelo menos um atributo em comum',
   miss: 'Diferente',
@@ -32,6 +47,9 @@ export const clueLabels: Record<Clue, string> = {
   later: 'Resposta em arco posterior',
 };
 export const clueSymbols: Record<Clue, string> = {
+  unknown: '?',
+  older: '↑',
+  younger: '↓',
   match: '✓',
   partial: '≈',
   miss: '×',
@@ -55,6 +73,7 @@ export function createGame(options: {
   characters: readonly GameCharacter[];
   arcs: readonly string[];
   title: string;
+  fields?: readonly { key: Field; label: string }[];
   challenge: (date: string) => {
     date: string;
     number: number;
@@ -90,7 +109,30 @@ export function createGame(options: {
     answer: GameCharacter,
     field: Field,
   ): Clue {
-    if (field === 'nature' || field === 'group' || field === 'weapon') {
+    if (field === 'age') {
+      if (guess.age == null || answer.age == null) return 'unknown';
+      return guess.age === answer.age
+        ? 'match'
+        : guess.age < answer.age
+          ? 'older'
+          : 'younger';
+    }
+    if (field === 'equipment' || field === 'position') {
+      if (
+        !guess[field]?.length ||
+        !answer[field]?.length ||
+        guess[field]?.includes('Indefinido') ||
+        answer[field]?.includes('Indefinido')
+      )
+        return 'unknown';
+    }
+    if (
+      field === 'nature' ||
+      field === 'group' ||
+      field === 'weapon' ||
+      field === 'equipment' ||
+      field === 'position'
+    ) {
       const guessed = new Set<string>(guess[field]);
       const expected = new Set<string>(answer[field]);
       if (
@@ -145,14 +187,20 @@ export function createGame(options: {
     const { number, answer } = challenge(date);
     const grid = guesses
       .map((id) =>
-        fields
+        (options.fields ?? fields)
           .map(({ key }) => {
             const clue = compare(
               characters.find((c) => c.id === id)!,
               answer,
               key,
             );
-            return clue === 'match' ? '🟩' : clue === 'partial' ? '🟧' : '🟥';
+            return clue === 'unknown'
+              ? '⬜'
+              : clue === 'match'
+                ? '🟩'
+                : clue === 'partial'
+                  ? '🟧'
+                  : '🟥';
           })
           .join(''),
       )

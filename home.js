@@ -1,5 +1,9 @@
 const translations = {
   pt: {
+    playKimetsu: "Jogar Demon Slayer DLE",
+    kimetsuCaption: "RESPIRE FUNDO. SIGA AS PISTAS.",
+    kimetsuDescription:
+      "De Tanjiro aos Hashira. Compare respirações e poderes para encontrar o personagem de hoje.",
     playHxh: "Jogar Hunter × Hunter DLE",
     hxhCaption: "SUA PRÓXIMA CAÇADA COMEÇA AQUI.",
     hxhDescription:
@@ -52,6 +56,10 @@ const translations = {
     helpPlay: "Entendi. Deixa comigo.",
   },
   en: {
+    playKimetsu: "Play Demon Slayer DLE",
+    kimetsuCaption: "TAKE A BREATH. FOLLOW THE CLUES.",
+    kimetsuDescription:
+      "From Tanjiro to the Hashira. Compare breathing styles and powers to find today’s character.",
     playHxh: "Play Hunter × Hunter DLE",
     hxhCaption: "YOUR NEXT HUNT STARTS HERE.",
     hxhDescription:
@@ -104,6 +112,10 @@ const translations = {
     helpPlay: "Got it. Let me try.",
   },
   es: {
+    playKimetsu: "Jugar Demon Slayer DLE",
+    kimetsuCaption: "RESPIRA HONDO. SIGUE LAS PISTAS.",
+    kimetsuDescription:
+      "De Tanjiro a los Hashira. Compara respiraciones y poderes para encontrar al personaje de hoy.",
     playHxh: "Jugar Hunter × Hunter DLE",
     hxhCaption: "TU PRÓXIMA CACERÍA EMPIEZA AQUÍ.",
     hxhDescription:
