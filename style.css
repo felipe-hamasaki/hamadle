@@ -1107,3 +1107,17 @@ html:lang(es) h1 {
 .kimetsu-ticket .art-title span {
   color: #f8a3a0;
 }
+
+.souls-ticket .game-art {
+  background: #292319;
+}
+.souls-ticket .game-art img {
+  object-position: center;
+}
+.souls-ticket .art-title {
+  font-family: Georgia, serif;
+  letter-spacing: -0.045em;
+}
+.souls-ticket .art-title span {
+  color: #edd29c;
+}

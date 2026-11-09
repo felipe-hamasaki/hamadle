@@ -36,6 +36,8 @@ createServer(async (request, response) => {
       return;
     }
     if (
+      url.pathname === "/dark-souls" ||
+      url.pathname.startsWith("/dark-souls/") ||
       url.pathname === "/kimetsu" ||
       url.pathname.startsWith("/kimetsu/") ||
       url.pathname === "/hxh" ||
@@ -43,7 +45,7 @@ createServer(async (request, response) => {
       url.pathname.startsWith("/hxh/")
     ) {
       const pathname = decodeURIComponent(
-        /^\/(hxh|kimetsu)\/?$/.test(url.pathname)
+        /^\/(hxh|kimetsu|dark-souls)\/?$/.test(url.pathname)
           ? `/${url.pathname.split("/")[1]}.html`
           : url.pathname,
       );

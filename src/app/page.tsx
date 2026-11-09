@@ -65,6 +65,19 @@ export default function Home() {
             <span className="hub-play">Jogar agora ↗</span>
           </div>
         </Link>
+        <Link href="/dark-souls" className="hub-card">
+          <div className="hub-card-art hub-souls-art" aria-hidden="true">
+            <strong>DARK SOULS</strong>
+          </div>
+          <div className="hub-card-content">
+            <h3>Dark Souls DLE</h3>
+            <p>
+              Descubra o personagem da trilogia pelos jogos, pactos e locais de
+              encontro.
+            </p>
+            <span className="hub-play">Jogar agora ↗</span>
+          </div>
+        </Link>
         <p className="hub-soon">Outros universos chegam em breve.</p>
       </section>
       <footer className="hub-footer">

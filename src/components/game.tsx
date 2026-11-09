@@ -24,7 +24,7 @@ import {
 import {
   clueLabels,
   dateInBrasilia,
-  type GameCharacter,
+  type PlayableCharacter,
 } from '@/lib/game-engine';
 
 type Session = { date: string; guesses: string[] };
@@ -33,7 +33,7 @@ function Portrait({
   character,
   large = false,
 }: {
-  character: GameCharacter;
+  character: PlayableCharacter;
   large?: boolean;
 }) {
   const { name } = character;
@@ -78,16 +78,20 @@ function Portrait({
 
 export default function Game({
   universe = 'berserk',
+  souls,
 }: {
-  universe?: 'berserk' | 'hxh' | 'kimetsu';
+  universe?: 'berserk' | 'hxh' | 'kimetsu' | 'dark-souls';
+  souls?: typeof import('@/lib/dark-souls-game');
 }) {
   const isHxh = universe === 'hxh';
   const isKimetsu = universe === 'kimetsu';
-  const characters: readonly GameCharacter[] = isKimetsu
-    ? kimetsuCharacters
-    : isHxh
-      ? hxhCharacters
-      : berserkCharacters;
+  const characters: readonly PlayableCharacter[] = souls
+    ? souls.characters
+    : isKimetsu
+      ? kimetsuCharacters
+      : isHxh
+        ? hxhCharacters
+        : berserkCharacters;
   const {
     challenge,
     compare,
@@ -99,7 +103,7 @@ export default function Game({
     search,
     shareText,
     storageKey,
-  } = isKimetsu ? kimetsu : isHxh ? hxh : berserk;
+  } = souls ?? (isKimetsu ? kimetsu : isHxh ? hxh : berserk);
   const [session, setSession] = useState<Session | null>(null);
   const sessionRef = useRef<Session | null>(null);
   const [query, setQuery] = useState('');
@@ -329,7 +333,15 @@ export default function Game({
 
   return (
     <div
-      className={isKimetsu ? 'kimetsu-theme' : isHxh ? 'hxh-theme' : undefined}
+      className={
+        souls
+          ? 'souls-theme'
+          : isKimetsu
+            ? 'kimetsu-theme'
+            : isHxh
+              ? 'hxh-theme'
+              : undefined
+      }
     >
       <a className="skip-link" href="#game">
         Pular para o jogo
@@ -337,21 +349,37 @@ export default function Game({
       <div className="atmosphere" aria-hidden="true" />
       <main className="shell">
         <header className="hero">
-          <Link href="/" className="hub-return">
+          {/* The portal serves a separate static document at its root. */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+          <a href="/" className="hub-return">
             ← Hamadle
-          </Link>
+          </a>
           <Link
             className="wordmark"
-            href={isKimetsu ? '/kimetsu' : isHxh ? '/hxh' : '/berserkdle'}
+            href={
+              souls
+                ? '/dark-souls'
+                : isKimetsu
+                  ? '/kimetsu'
+                  : isHxh
+                    ? '/hxh'
+                    : '/berserkdle'
+            }
             aria-label={
-              isKimetsu
-                ? 'Demon Slayer DLE, início'
-                : isHxh
-                  ? 'Hunter × Hunter DLE, início'
-                  : 'Berserkdle, início'
+              souls
+                ? 'Dark Souls DLE, início'
+                : isKimetsu
+                  ? 'Demon Slayer DLE, início'
+                  : isHxh
+                    ? 'Hunter × Hunter DLE, início'
+                    : 'Berserkdle, início'
             }
           >
-            {isKimetsu ? (
+            {souls ? (
+              <h1 id="title">
+                Dark Souls<span>DLE</span>
+              </h1>
+            ) : isKimetsu ? (
               <>
                 <h1 id="title" className="sr-only">
                   Demon Slayer DLE
@@ -392,11 +420,13 @@ export default function Game({
             )}
           </Link>
           <p className="hero-copy">
-            {isKimetsu
-              ? 'Respire fundo. Siga as pistas.'
-              : isHxh
-                ? 'Uma nova caçada. Todos os dias.'
-                : 'Um novo destino. Todos os dias.'}
+            {souls
+              ? 'Lordran · Drangleic · Lothric'
+              : isKimetsu
+                ? 'Respire fundo. Siga as pistas.'
+                : isHxh
+                  ? 'Uma nova caçada. Todos os dias.'
+                  : 'Um novo destino. Todos os dias.'}
           </p>
           <div className="game-toolbar">
             <span className="mode-badge">
@@ -443,7 +473,13 @@ export default function Game({
                   : 'O DESAFIO DIÁRIO'}
             </p>
             <h2 id="game-title">
-              {isKimetsu ? (
+              {souls ? (
+                <>
+                  Quem é o personagem
+                  <br />
+                  de <em>Dark Souls</em> de hoje?
+                </>
+              ) : isKimetsu ? (
                 <>
                   Quem é o personagem
                   <br />
@@ -464,11 +500,13 @@ export default function Game({
               )}
             </h2>
             <p className="challenge-copy">
-              {isKimetsu
-                ? 'Da primeira respiração ao último palpite.'
-                : isHxh
-                  ? 'Descubra o personagem de hoje. Seu Nen é a memória.'
-                  : 'Siga as pistas. Desafie a causalidade.'}
+              {souls
+                ? 'Compare os jogos, os encontros e o papel de cada personagem.'
+                : isKimetsu
+                  ? 'Da primeira respiração ao último palpite.'
+                  : isHxh
+                    ? 'Descubra o personagem de hoje. Seu Nen é a memória.'
+                    : 'Siga as pistas. Desafie a causalidade.'}
             </p>
 
             {!finished && (
@@ -616,7 +654,7 @@ export default function Game({
                               <div className={`clue ${clue}`}>
                                 <span>
                                   {key === 'weapon' &&
-                                  c.weapon.every(
+                                  c.weapon?.every(
                                     (value) =>
                                       value === 'Não informada' ||
                                       value === 'Nenhuma',
@@ -628,15 +666,20 @@ export default function Game({
                                       ×
                                     </span>
                                   ) : Array.isArray(c[key]) ? (
-                                    (c[key] as readonly string[]).map(
-                                      (value) => (
-                                        <span
-                                          className="clue-value"
-                                          key={value}
-                                        >
-                                          {value}
-                                        </span>
-                                      ),
+                                    (c[key] as readonly string[]).length ===
+                                    0 ? (
+                                      'Sem registro'
+                                    ) : (
+                                      (c[key] as readonly string[]).map(
+                                        (value) => (
+                                          <span
+                                            className="clue-value"
+                                            key={value}
+                                          >
+                                            {value}
+                                          </span>
+                                        ),
+                                      )
                                     )
                                   ) : key === 'age' ? (
                                     c.age == null ? (
@@ -718,19 +761,23 @@ export default function Game({
         )}
         <footer className="site-footer">
           <span>
-            {isKimetsu
-              ? 'Uma nova missão a cada amanhecer.'
-              : isHxh
-                ? 'O próximo desafio está sempre à sua espera.'
-                : 'Um desafio diário para quem carrega a marca.'}
+            {souls
+              ? 'Uma nova rodada à meia-noite de Brasília.'
+              : isKimetsu
+                ? 'Uma nova missão a cada amanhecer.'
+                : isHxh
+                  ? 'O próximo desafio está sempre à sua espera.'
+                  : 'Um desafio diário para quem carrega a marca.'}
           </span>
           <span>
             Projeto de fãs · Universo de{' '}
-            {isKimetsu
-              ? 'Koyoharu Gotouge'
-              : isHxh
-                ? 'Yoshihiro Togashi'
-                : 'Kentaro Miura'}
+            {souls
+              ? 'FromSoftware'
+              : isKimetsu
+                ? 'Koyoharu Gotouge'
+                : isHxh
+                  ? 'Yoshihiro Togashi'
+                  : 'Kentaro Miura'}
           </span>
         </footer>
       </main>
@@ -758,7 +805,26 @@ export default function Game({
           listas são diferentes. <strong>Vermelho</strong>: nenhum valor em
           comum.
         </p>
-        {isKimetsu ? (
+        {souls ? (
+          <>
+            <p>
+              As {characters.length} fichas incluem spoilers dos três jogos e
+              das seis expansões. Você pode buscar pelo nome, sobrenome ou
+              apelido.
+            </p>
+            <p>
+              Jogos reúne os títulos em que o personagem aparece. Conteúdo
+              identifica o jogo base ou a expansão dos encontros de referência.
+              Local mostra uma ou mais áreas onde você pode encontrá-lo.
+            </p>
+            <p>
+              Papel reúne as funções conhecidas, como chefe, mercador, ferreiro,
+              invasor ou aliado invocável. Uma ficha pode reunir vários papéis.
+              Pacto indica um vínculo documentado. Sem registro gera uma pista
+              cinza. Apenas acertar o personagem vence.
+            </p>
+          </>
+        ) : isKimetsu ? (
           <>
             <p>A ordem dos arcos é: {kimetsuArcs.join(' → ')}.</p>
             <p>
@@ -839,32 +905,75 @@ export default function Game({
             {characters.map((c) => (
               <li key={c.id}>
                 <Portrait character={c} />
-                <strong>{c.name}</strong> · {c.arc}
-                <p>
-                  {c.gender} · {c.nature.join(', ')} · {c.group.join(', ')} ·{' '}
-                  {c.weapon.join(', ')}
-                  {isKimetsu && (
-                    <>
-                      {' '}
-                      · Arma: {c.equipment?.join(', ') ?? 'Indefinido'} · Idade:{' '}
-                      {c.age == null ? 'Indefinido' : `${c.age} anos`} ·
-                      Posição: {c.position?.join(', ') ?? 'Indefinido'}
-                    </>
-                  )}
-                </p>
-                <p>
-                  {c.note}{' '}
-                  <a href={c.source} target="_blank" rel="noreferrer">
-                    Referência editorial ↗
-                  </a>
-                </p>
+                <strong>{c.name}</strong>
+                {souls ? (
+                  <>
+                    <p>
+                      {fields.map(({ key, label }) => (
+                        <span className="clue-value" key={key}>
+                          {label}:{' '}
+                          {Array.isArray(c[key])
+                            ? (c[key] as readonly string[]).join(' · ') ||
+                              'Sem registro'
+                            : c[key]}
+                        </span>
+                      ))}
+                    </p>
+                    <p>
+                      {c.sources?.map((source, i) => (
+                        <a
+                          key={source}
+                          href={source}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Wiki {i + 1} ↗
+                        </a>
+                      ))}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    {' '}
+                    · {c.arc}
+                    <p>
+                      {c.gender} · {c.nature?.join(', ')} ·{' '}
+                      {c.group?.join(', ')} · {c.weapon?.join(', ')}
+                      {isKimetsu && (
+                        <>
+                          {' '}
+                          · Arma: {c.equipment?.join(', ') ?? 'Indefinido'} ·
+                          Idade:{' '}
+                          {c.age == null ? 'Indefinido' : `${c.age} anos`} ·
+                          Posição: {c.position?.join(', ') ?? 'Indefinido'}
+                        </>
+                      )}
+                    </p>
+                    <p>
+                      {c.note}{' '}
+                      <a href={c.source} target="_blank" rel="noreferrer">
+                        Referência editorial ↗
+                      </a>
+                    </p>
+                  </>
+                )}
               </li>
             ))}
           </ul>
         </details>
         <details className="image-credits">
           <summary>Créditos das imagens</summary>
-          {isKimetsu ? (
+          {souls ? (
+            <p>
+              Arte de Dark Souls III da{' '}
+              <a href="https://store.steampowered.com/app/374320/">
+                página oficial na Steam
+              </a>
+              . Retratos de jogo das wikis da trilogia, com a fonte de cada
+              ficha indicada no elenco. Dark Souls pertence à FromSoftware e à
+              Bandai Namco.
+            </p>
+          ) : isKimetsu ? (
             <p>
               Retratos e arte promocional:{' '}
               <a

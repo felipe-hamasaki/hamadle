@@ -1,5 +1,9 @@
 const translations = {
   pt: {
+    playSouls: "Jogar Dark Souls DLE",
+    soulsCategory: "VIDEOGAME",
+    soulsCaption: "LORDRAN · DRANGLEIC · LOTHRIC",
+    soulsDescription: "De Solaire a Gael. Descubra o personagem da trilogia pelas pistas de cada encontro.",
     playKimetsu: "Jogar Demon Slayer DLE",
     kimetsuCaption: "RESPIRE FUNDO. SIGA AS PISTAS.",
     kimetsuDescription:
@@ -56,6 +60,10 @@ const translations = {
     helpPlay: "Entendi. Deixa comigo.",
   },
   en: {
+    playSouls: "Play Dark Souls DLE",
+    soulsCategory: "VIDEO GAME",
+    soulsCaption: "LORDRAN · DRANGLEIC · LOTHRIC",
+    soulsDescription: "From Solaire to Gael. Guess the trilogy character from clues about each encounter.",
     playKimetsu: "Play Demon Slayer DLE",
     kimetsuCaption: "TAKE A BREATH. FOLLOW THE CLUES.",
     kimetsuDescription:
@@ -112,6 +120,10 @@ const translations = {
     helpPlay: "Got it. Let me try.",
   },
   es: {
+    playSouls: "Jugar Dark Souls DLE",
+    soulsCategory: "VIDEOJUEGO",
+    soulsCaption: "LORDRAN · DRANGLEIC · LOTHRIC",
+    soulsDescription: "De Solaire a Gael. Descubre al personaje de la trilogía con las pistas de cada encuentro.",
     playKimetsu: "Jugar Demon Slayer DLE",
     kimetsuCaption: "RESPIRA HONDO. SIGUE LAS PISTAS.",
     kimetsuDescription:

@@ -1,0 +1,75 @@
+.souls-theme {
+  isolation: isolate;
+  min-height: 100dvh;
+  background: #151310;
+  --paper: #eee4cc;
+  --green: #325241;
+  --red: #7c3029;
+}
+.souls-theme .atmosphere {
+  background:
+    linear-gradient(180deg, #100e0c78, #100e0cb3 65%, #100e0c),
+    url('/dark-souls/lothric.jpg') center top / cover no-repeat;
+}
+.souls-theme .shell {
+  width: min(880px, calc(100% - 32px));
+}
+.souls-theme .hero h1 {
+  font:
+    normal clamp(42px, 8vw, 78px)/1 Georgia,
+    serif;
+  font-variant: small-caps;
+  letter-spacing: -0.045em;
+  color: #f4ead1;
+  text-shadow:
+    0 2px 4px #000,
+    0 0 20px #20170d;
+  -webkit-text-stroke: 0;
+}
+.souls-theme .hero h1 span {
+  display: block;
+  margin: 6px 0 0;
+  font:
+    normal 15px/1.4 Georgia,
+    serif;
+  letter-spacing: 0.45em;
+  color: #f3c77c;
+}
+.souls-theme .hero-copy,
+.souls-theme .hub-return {
+  color: #f4e8d3;
+}
+.souls-theme .card-heading {
+  background: linear-gradient(160deg, #f0e8d8, #dcd1b8);
+  border-top: 3px solid #b98d48;
+}
+.souls-theme .card-heading h2 {
+  font-family: Georgia, serif;
+  letter-spacing: -0.035em;
+}
+.souls-theme .card-heading em,
+.souls-theme .section-label {
+  color: #78481f;
+}
+.souls-theme .primary {
+  background: #543d26;
+  color: #fff4d8;
+  border-color: #9c794c;
+}
+.souls-theme .game-toolbar,
+.souls-theme .reset-button {
+  background: #171511e8;
+  border-color: #877350;
+}
+.souls-theme .mode-badge > span {
+  color: #edbc72;
+}
+.souls-theme .portrait img {
+  object-position: center 30%;
+}
+.souls-theme .clue-value {
+  overflow-wrap: anywhere;
+}
+.souls-theme .roster a {
+  margin-right: 0.5em;
+}

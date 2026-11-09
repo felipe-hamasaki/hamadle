@@ -17,6 +17,16 @@ export type GameCharacter = {
   note: string;
   source: string;
 };
+type SoulsFields = 'games' | 'content' | 'roles' | 'areas' | 'covenants';
+export type PlayableCharacter = Pick<
+  GameCharacter,
+  'id' | 'name' | 'image' | 'aliases'
+> &
+  Partial<GameCharacter> &
+  Partial<Record<SoulsFields, readonly string[]>> & {
+    sources?: readonly string[];
+  };
+
 export const TIME_ZONE = 'America/Sao_Paulo';
 export const fields = [
   { key: 'gender', label: 'Gênero' },
@@ -26,7 +36,11 @@ export const fields = [
   { key: 'arc', label: 'Arco de referência' },
 ] as const;
 export type Field =
-  (typeof fields)[number]['key'] | 'equipment' | 'age' | 'position';
+  | (typeof fields)[number]['key']
+  | 'equipment'
+  | 'age'
+  | 'position'
+  | SoulsFields;
 export type Clue =
   | 'match'
   | 'partial'
@@ -69,15 +83,16 @@ export function dateInBrasilia(now = new Date()): string {
     .join('-');
 }
 
-export function createGame(options: {
-  characters: readonly GameCharacter[];
+export function createGame<T extends PlayableCharacter>(options: {
+  characters: readonly T[];
+  searchByWord?: boolean;
   arcs: readonly string[];
   title: string;
   fields?: readonly { key: Field; label: string }[];
   challenge: (date: string) => {
     date: string;
     number: number;
-    answer: GameCharacter;
+    answer: T;
   };
   storageKey: (date: string) => string;
 }) {
@@ -95,7 +110,12 @@ export function createGame(options: {
     return needle
       ? characters.filter(
           (c) =>
-            !excluded.includes(c.id) && normalize(c.name).startsWith(needle),
+            !excluded.includes(c.id) &&
+            (options.searchByWord
+              ? [c.name, ...c.aliases].some((value) =>
+                  (' ' + normalize(value)).includes(' ' + needle),
+                )
+              : normalize(c.name).startsWith(needle)),
         )
       : [];
   }
@@ -105,8 +125,8 @@ export function createGame(options: {
     );
   }
   function compare(
-    guess: GameCharacter,
-    answer: GameCharacter,
+    guess: PlayableCharacter,
+    answer: PlayableCharacter,
     field: Field,
   ): Clue {
     if (field === 'age') {
@@ -117,7 +137,11 @@ export function createGame(options: {
           ? 'older'
           : 'younger';
     }
-    if (field === 'equipment' || field === 'position') {
+    if (
+      field === 'equipment' ||
+      field === 'position' ||
+      field === 'covenants'
+    ) {
       if (
         !guess[field]?.length ||
         !answer[field]?.length ||
@@ -126,15 +150,11 @@ export function createGame(options: {
       )
         return 'unknown';
     }
-    if (
-      field === 'nature' ||
-      field === 'group' ||
-      field === 'weapon' ||
-      field === 'equipment' ||
-      field === 'position'
-    ) {
-      const guessed = new Set<string>(guess[field]);
-      const expected = new Set<string>(answer[field]);
+    const guessValue = guess[field];
+    const answerValue = answer[field];
+    if (Array.isArray(guessValue) && Array.isArray(answerValue)) {
+      const guessed = new Set<string>(guessValue);
+      const expected = new Set<string>(answerValue);
       if (
         guessed.size === expected.size &&
         [...guessed].every((value) => expected.has(value))
@@ -145,7 +165,7 @@ export function createGame(options: {
         : 'miss';
     }
     if (guess[field] === answer[field]) return 'match';
-    if (field === 'arc')
+    if (field === 'arc' && answer.arc && guess.arc)
       return arcs.indexOf(answer.arc) > arcs.indexOf(guess.arc)
         ? 'later'
         : 'earlier';

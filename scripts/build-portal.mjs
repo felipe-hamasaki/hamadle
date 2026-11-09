@@ -45,3 +45,13 @@ await cp(
   new URL('kimetsu/', output),
   { recursive: true },
 );
+
+await cp(
+  new URL('../out/dark-souls.html', import.meta.url),
+  new URL('dark-souls.html', output),
+);
+await cp(
+  new URL('../public/dark-souls/', import.meta.url),
+  new URL('dark-souls/', output),
+  { recursive: true },
+);

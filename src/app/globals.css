@@ -998,3 +998,9 @@ td {
     linear-gradient(90deg, #07241eb0, #0005),
     url('/kimetsu/images/key-visual.jpg') center 30% / cover;
 }
+
+.hub-souls-art {
+  background:
+    linear-gradient(0deg, #15110bad, #15110b30),
+    url('/dark-souls/lothric.jpg') center / cover;
+}
